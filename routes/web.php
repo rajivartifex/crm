@@ -27,3 +27,5 @@ Route::get('customer/no-emp', [CustomerController::class, 'view_no_of_emp'])->na
 Route::get('customer/business-category', [CustomerController::class, 'view_of_business_category'])->name('customer-business-category-index');
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
 Route::get('customer/description', [CustomerController::class, 'view_description'])->name('customer-description-index');
+Route::get('customer/payment-method', [CustomerController::class, 'view_payment_method'])->name('customer-payment-method-index');
+Route::get('customer/web', [CustomerController::class, 'view_web'])->name('customer-web-index');

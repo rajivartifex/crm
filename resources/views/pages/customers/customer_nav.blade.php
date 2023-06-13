@@ -5,21 +5,29 @@
 @section('style')
 @endsection
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h4>Customer Detail</h4>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#" class="btn btn-sm btn-secondary">Back</a></li>
-                        {{-- <li class="breadcrumb-item active">DataTables</li> --}}
-                    </ol>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Customer Detail</h5><br /><hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Business Name
+                    </div>
+                    <div class="col-sm-6">
+                        Country this business is based in
+                    </div>
+                    <div class="col-sm-6">
+                        Business Telephone
+                    </div>
+                    <div class="col-sm-6">
+                        Business Website
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -48,24 +56,16 @@
                                         @include('pages.customers.profile_section.profle')
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                                        @include('pages.about_section.about')
+                                        @include('pages.customers.about_section.about')
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-
+                                        @include('pages.customers.payment_section.payment')
                                     </div>
-                                    <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel"
-                                        aria-labelledby="custom-tabs-one-settings-tab">
-                                        Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis
-                                        tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque
-                                        tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum
-                                        consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra.
-                                        Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut
-                                        nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet
-                                        accumsan ex sit amet facilisis.
+                                    <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                                        @include('pages.customers.web_section.web_tbl')
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.card -->
                         </div>
                     </div>
                 </div>

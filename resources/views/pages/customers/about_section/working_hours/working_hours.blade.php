@@ -1,10 +1,3 @@
-@extends('layouts.app')
-@section('title')
-    Add/Edit Working Hours
-@endsection
-@section('style')
-@endsection
-@section('content')
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -20,7 +13,3 @@
         </div>
     </div>
 </section>
-
-@endsection
-@section('script')
-@endsection
