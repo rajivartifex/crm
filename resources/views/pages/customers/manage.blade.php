@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#" class="btn btn-sm btn-primary">New</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('customer-add-index')}}" class="btn btn-sm btn-primary">New</a></li>
                     {{-- <li class="breadcrumb-item active">DataTables</li> --}}
                 </ol>
             </div>
@@ -40,12 +40,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($customer as $key => $list)
                             <tr>
-                                <td>1</td>
-                                <td>XYZ</td>
+                                <td>{{$key+1}}</td>
+                                <td>{{$list->cust_business_name	?? ''}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{route('customer-add-index')}}" class="btn btn-primary btn-sm">View</a>
+                                        <a href="{{route('customer-add-index',['cust_id' => $list->id ?? ''])}}" class="btn btn-primary btn-sm">View</a>
                                         <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
@@ -55,6 +56,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                         <tfoot>
                             <tr>

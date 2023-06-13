@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
     public function manageIndex()
     {
-        return view('pages.customers.manage');
+        $customer = Customer::all();
+        return view('pages.customers.manage',compact('customer'));
     }
 
-    public function addIndex()
+    public function addIndex(Request $request)
     {
-        return view('pages.customers.customer_nav');
+        $customer = Customer::find($request->cust_id);
+        return view('pages.customers.customer_nav',compact('customer'));
     }
 
-    public function view_business_identity()
-    {
-        return view('pages.customers.profile_section.bus_identity');
-    }
+
     public function view_business_location()
     {
         return view('pages.customers.profile_section.bus_location.bus_location');

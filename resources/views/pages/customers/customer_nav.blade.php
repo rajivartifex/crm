@@ -12,16 +12,16 @@
                 <h5 class="card-title">Customer Detail</h5><br /><hr>
                 <div class="row">
                     <div class="col-sm-6">
-                        Business Name
+                        Business Name: {{$customer->cust_business_name ?? ''}}
                     </div>
                     <div class="col-sm-6">
-                        Country this business is based in
+                        Country this business is based in: {{$customer->cust_business_country ?? ''}}
                     </div>
                     <div class="col-sm-6">
-                        Business Telephone
+                        Business Telephone: {{$customer->cust_business_telephone ?? ''}}
                     </div>
                     <div class="col-sm-6">
-                        Business Website
+                        Business Website: {{$customer->cust_business_website ?? ''}}
                     </div>
                 </div>
             </div>
