@@ -1,11 +1,21 @@
 <script>
 $(document).ready(function(){
+
+    /* business contact info table init */
     $(function () {
         $("#business-contact-info-tbl").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
         });
     });
 
+    /* business about employee table init */
+    $(function () {
+        $("#business-about-emp-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
+    /* business identity form submit event */
     $(".business-identity-form").submit(function(e){
         e.preventDefault();
         var form_data = new FormData(this);
@@ -27,6 +37,7 @@ $(document).ready(function(){
         })
     });
 
+    /* common soft delete event */
     $(document).on('click', '.btn-delete',function (e) {
         e.preventDefault();
         var id = $(this).attr('data-id');
@@ -48,7 +59,7 @@ $(document).ready(function(){
                     success: function(data){
                         Swal.fire(
                             'Deleted!',
-                            'Business location contact info deleted successfully!',
+                            'Deleted successfully!',
                             'success'
                             )
                             setTimeout(function () {
