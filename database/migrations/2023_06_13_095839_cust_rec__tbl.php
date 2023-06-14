@@ -19,6 +19,7 @@ class CustRecTbl extends Migration
             $table->string('cust_business_country')->nullable();
             $table->bigInteger('cust_business_telephone')->nullable();
             $table->longText('cust_business_website')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

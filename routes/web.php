@@ -29,6 +29,7 @@ Route::post('customer/business-identity/store', [BusinessIdentityController::cla
 //Business Contact Info
 Route::get('customer/business-contact-info', [BusinessContactInfoController::class, 'view_business_contact_info'])->name('customer-business-contact-info-index');
 Route::post('customer/business-contact-info/store', [BusinessContactInfoController::class, 'business_contact_info_store'])->name('customer-business-contact-info-store');
+Route::post('customer/business-contact-info/delete', [BusinessContactInfoController::class, 'business_contact_info_delete'])->name('customer-business-contact-info-delete');
 
 Route::get('customer/business-location', [CustomerController::class, 'view_business_location'])->name('customer-business-location-index');
 Route::get('customer/no-emp', [CustomerController::class, 'view_no_of_emp'])->name('customer-no-emp-index');

@@ -21,6 +21,7 @@ class ContactInfoRecTbl extends Migration
             $table->bigInteger('con_telephone')->nullable();
             $table->string('con_fax')->nullable();
             $table->date('con_date')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

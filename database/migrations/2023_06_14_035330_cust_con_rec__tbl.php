@@ -17,6 +17,7 @@ class CustConRecTbl extends Migration
             $table->id();
             $table->integer('cust_id')->nullable();
             $table->integer('cust_con_id')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

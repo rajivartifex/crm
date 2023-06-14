@@ -33,8 +33,8 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary business-identity-submit">Submit</button>
-            <button type="#" class="btn btn-secondary">Back</button>
+            <button type="submit" class="btn btn-sm btn-primary business-identity-submit">Submit</button>
+            <button type="#" class="btn btn-sm btn-secondary">Back</button>
         </div>
     </form>
 </div>

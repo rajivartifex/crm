@@ -47,4 +47,11 @@ class BusinessContactInfoController extends Controller
             ]);
         }
     }
+
+    public function business_contact_info_delete(Request $request)
+    {
+        CustomerContactInfo::find($request->id)->delete();
+        // CustomerContactInfo::onlyTrashed()->restore();
+        return response()->json(['success' => 'Business location contact info deleted successfully!','title' => 'Business Location Contact Info']);
+    }
 }

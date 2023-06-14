@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="{{asset('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
 
     @yield('style')
 </head>
@@ -108,12 +110,14 @@
     <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
     <!-- Toastr -->
     <script src="{{asset('assets/plugins/toastr/toastr.min.js')}}"></script>
-
     <!-- DataTables  & Plugins -->
     <script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <!-- SweetAlert2 -->
+    <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+
     @yield('script')
     <script>
         $(document).ready(function(){
