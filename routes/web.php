@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('layouts.app');
 });
 
-Route::get('manage-index', [CustomerController::class, 'manageIndex'])->name('customer-manage-index');
+Route::get('customer/manage-index', [CustomerController::class, 'manageIndex'])->name('customer-manage-index');
 Route::get('customer', [CustomerController::class, 'addIndex'])->name('customer-add-index');
 //Business Identity
 Route::get('customer/business-identity', [BusinessIdentityController::class, 'view_business_identity'])->name('customer-business-identity-index');
