@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\CustAboutEmp;
+use App\Models\CustDescription;
 use App\Models\Customer;
 use App\Models\CustomerContactInfo;
 use Illuminate\Http\Request;
@@ -21,9 +22,9 @@ class CustomerController extends Controller
         $customer = Customer::find($request->cust_id);
         $contactInfo = CustomerContactInfo::where('cust_id',$customer->id ?? '')->with('contact')->get();
         $custEmp = CustAboutEmp::all();
-        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp'));
+        $custDesc = CustDescription::all();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc'));
     }
-
 
     public function view_business_location()
     {
@@ -38,11 +39,6 @@ class CustomerController extends Controller
     public function view_working_hours()
     {
         return view('pages.customers.about_section.working_hours.working_hours');
-    }
-
-    public function view_description()
-    {
-        return view('pages.customers.about_section.description.description');
     }
 
     public function view_payment_method()

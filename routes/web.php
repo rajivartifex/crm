@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BusinessAboutEmpController;
 use App\Http\Controllers\BusinessContactInfoController;
+use App\Http\Controllers\BusinessCustDescController;
 use App\Http\Controllers\BusinessIdentityController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Customer\CustomerController;
@@ -37,9 +38,13 @@ Route::get('customer/no-emp', [BusinessAboutEmpController::class, 'view_no_of_em
 Route::post('customer/no-emp/store', [BusinessAboutEmpController::class, 'view_no_of_emp_store'])->name('customer-no-emp-store');
 Route::post('customer/no-emp/delete', [BusinessAboutEmpController::class, 'view_no_of_emp_delete'])->name('customer-no-emp-delete');
 
+//Business About Description
+Route::get('customer/description', [BusinessCustDescController::class, 'view_description'])->name('customer-description-index');
+Route::post('customer/description/store', [BusinessCustDescController::class, 'view_description_store'])->name('customer-description-store');
+Route::post('customer/description/delete', [BusinessCustDescController::class, 'view_description_delete'])->name('customer-description-delete');
+
 Route::get('customer/business-location', [CustomerController::class, 'view_business_location'])->name('customer-business-location-index');
 Route::get('customer/business-category', [CustomerController::class, 'view_of_business_category'])->name('customer-business-category-index');
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
-Route::get('customer/description', [CustomerController::class, 'view_description'])->name('customer-description-index');
 Route::get('customer/payment-method', [CustomerController::class, 'view_payment_method'])->name('customer-payment-method-index');
 Route::get('customer/web', [CustomerController::class, 'view_web'])->name('customer-web-index');
