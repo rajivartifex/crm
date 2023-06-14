@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\CustomerContactInfo;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -17,7 +18,8 @@ class CustomerController extends Controller
     public function addIndex(Request $request)
     {
         $customer = Customer::find($request->cust_id);
-        return view('pages.customers.customer_nav',compact('customer'));
+        $contactInfo = CustomerContactInfo::where('cust_id',$customer->id ?? '')->with('contact')->get();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo'));
     }
 
 
@@ -26,10 +28,6 @@ class CustomerController extends Controller
         return view('pages.customers.profile_section.bus_location.bus_location');
     }
 
-    public function view_business_contact_info()
-    {
-        return view('pages.customers.profile_section.bus_contact_info.bus_contact_info');
-    }
     public function view_no_of_emp()
     {
         return view('pages.customers.about_section.bus_emp.bus_emp');

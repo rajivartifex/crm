@@ -74,5 +74,7 @@
         </div>
     </div>
 @endsection
-@section('script')
+@section('bottom-js')
+
 @endsection
+

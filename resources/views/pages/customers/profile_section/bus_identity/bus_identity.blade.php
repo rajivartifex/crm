@@ -39,7 +39,6 @@
     </form>
 </div>
 @section('script')
-
 @endsection
 @section('bottom-js')
 @include('pages.customers.profile_section.bus_identity.script')
