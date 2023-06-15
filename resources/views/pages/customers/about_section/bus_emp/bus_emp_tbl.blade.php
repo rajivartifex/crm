@@ -32,7 +32,7 @@
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                        <button class="dropdown-item btn-delete" data-redirect-url="{{route('customer-no-emp-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-no-emp-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
                                     </div>
                                 </div>
                             </td>

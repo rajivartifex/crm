@@ -26,9 +26,9 @@
                         @foreach($custDesc as $key => $list)
                         <tr>
                             <td>{{$key + 1}}</td>
-                            <td>{{$list->cust_short_desc ?? ''}}</td>
-                            <td>{{$list->cust_long_desc ?? ''}}</td>
-                            <td>{{$list->cust_alter_desc ?? ''}}</td>
+                            <td>{{\Str::limit($list->cust_short_desc ?? '', 70)}} <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> </td>
+                            <td>{{\Str::limit($list->cust_long_desc ?? '', 70)}} <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> </td>
+                            <td>{{\Str::limit($list->cust_alter_desc ?? '', 70)}} <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> </td>
                             <td>
                                 <div class="btn-group">
                                     <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-primary btn-sm">View</a>
@@ -36,7 +36,7 @@
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                        <button class="dropdown-item btn-delete" data-redirect-url="{{route('customer-description-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-description-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
                                     </div>
                                 </div>
                             </td>
