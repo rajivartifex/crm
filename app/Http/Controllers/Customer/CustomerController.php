@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\CustAboutEmp;
+use App\Models\CustCategories;
 use App\Models\CustDescription;
 use App\Models\Customer;
 use App\Models\CustomerContactInfo;
@@ -23,17 +24,13 @@ class CustomerController extends Controller
         $contactInfo = CustomerContactInfo::where('cust_id',$customer->id ?? '')->with('contact')->get();
         $custEmp = CustAboutEmp::all();
         $custDesc = CustDescription::all();
-        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc'));
+        $custCategories = CustCategories::with('categories')->get();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories'));
     }
 
     public function view_business_location()
     {
         return view('pages.customers.profile_section.bus_location.bus_location');
-    }
-
-    public function view_of_business_category()
-    {
-        return view('pages.customers.about_section.bus_category.bus_category');
     }
 
     public function view_working_hours()
