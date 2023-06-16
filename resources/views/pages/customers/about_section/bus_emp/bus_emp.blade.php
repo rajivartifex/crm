@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h4>Customer Name Id / No Of Employees Add/Edit</h4>
+                <h4>C{{$customer->id ?? ''}} | No Of Employees | {{$custEmp ? 'Edit' : 'Add'}}</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">

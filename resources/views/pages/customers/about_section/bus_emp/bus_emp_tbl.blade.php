@@ -3,6 +3,7 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title text-bold">About the Business</h3>
+                @if(!count($custEmp) > 0)
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
                         <div class="input-group-append">
@@ -10,6 +11,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
             <div class="card-body">
                 <table id="business-about-emp-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">

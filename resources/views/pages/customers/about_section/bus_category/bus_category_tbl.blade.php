@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="business-category-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -39,7 +39,7 @@
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="#">Delete</a>
+                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-business-category-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
                                     </div>
                                 </div>
                             </td>

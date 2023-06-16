@@ -63,4 +63,11 @@ class BusinessCategoriesController extends Controller
             ]);
         }
     }
+
+    public function view_of_business_category_delete(Request $request)
+    {
+        CustCategories::find($request->id)->delete();
+        ServiceTag::where('cust_categories_id',$request->id)->delete();
+        return response()->json(['success' => 'Business category deleted successfully!','title' => 'Business Category']);
+    }
 }

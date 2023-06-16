@@ -8,6 +8,7 @@ use App\Models\CustCategories;
 use App\Models\CustDescription;
 use App\Models\Customer;
 use App\Models\CustomerContactInfo;
+use App\Models\CustPayment;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -25,7 +26,8 @@ class CustomerController extends Controller
         $custEmp = CustAboutEmp::all();
         $custDesc = CustDescription::all();
         $custCategories = CustCategories::with('categories')->get();
-        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories'));
+        $custPayments = CustPayment::all();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments'));
     }
 
     public function view_business_location()
@@ -36,11 +38,6 @@ class CustomerController extends Controller
     public function view_working_hours()
     {
         return view('pages.customers.about_section.working_hours.working_hours');
-    }
-
-    public function view_payment_method()
-    {
-        return view('pages.customers.payment_section.payment_method');
     }
 
     public function view_web()

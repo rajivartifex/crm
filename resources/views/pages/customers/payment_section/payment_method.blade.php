@@ -12,12 +12,10 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h4>Customer Name Id / Payment Methods Accepted Add/Edit</h4>
+                <h4>C{{$customer->id ?? ''}} | Payment Methods Accepted | {{$custPayment ? 'Edit' : 'Add'}}</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    {{-- <li class="breadcrumb-item"><a href="#" class="btn btn-sm btn-primary">Back</a></li> --}}
-                    {{-- <li class="breadcrumb-item active">DataTables</li> --}}
                 </ol>
             </div>
         </div>
@@ -27,28 +25,26 @@
     <div class="card-header">
         <h3 class="card-title">Payment Methods Accepted</h3>
     </div>
-    <form>
+    <form class="business-payment-form">
+        <input type="hidden" name="ff[cust_id]" value="{{$customer->id ?? ''}}" />
+        <input type="hidden" name="ff[pay_id]" value="{{$custPayment->id ?? ''}}" />
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label>Payments Methods</label>
-                        <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-                            <option>Alabama</option>
-                            <option>Alaska</option>
-                            <option>California</option>
-                            <option>Delaware</option>
-                            <option>Tennessee</option>
-                            <option>Texas</option>
-                            <option>Washington</option>
+                        <select class="select2" multiple="multiple" name="ff[cust_payment_id][]" data-placeholder="Select a Payment" style="width: 100%;">
+                            @foreach($payments as $pay)
+                                <option value="{{$pay->id ?? ''}}" {{$custPayment ? (in_array($pay->id, $custPayment->cust_payment_id) ? 'selected' : '') : ''}}>{{$pay->payment ?? ''}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="#" class="btn btn-secondary">Back</button>
+            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            <a href="{{route('customer-add-index',['cust_id' => $customer->id])}}" class="btn btn-secondary btn-sm">Back</a>
         </div>
     </form>
 </div>
@@ -56,10 +52,5 @@
 @section('script')
 <!-- Select2 -->
 <script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
-<script>
-    $(document).ready(function(){
-        //Initialize Select2 Elements
-        $('.select2').select2()
-    });
-</script>
+@include('pages.customers.payment_section.script')
 @endsection

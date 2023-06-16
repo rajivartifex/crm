@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="business-description-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
                             <th>Id</th>

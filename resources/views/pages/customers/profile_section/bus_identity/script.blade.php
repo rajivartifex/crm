@@ -15,6 +15,27 @@ $(document).ready(function(){
         });
     });
 
+    /* business category table init */
+    $(function () {
+        $("#business-category-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
+    /* business description table init */
+    $(function () {
+        $("#business-description-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
+    /* business payment table init */
+    $(function () {
+        $("#business-payment-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
     /* business identity form submit event */
     $(".business-identity-form").submit(function(e){
         e.preventDefault();
