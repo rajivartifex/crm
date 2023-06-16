@@ -66,7 +66,7 @@ $(document).ready(function(){
             processData: false,
             success:function(response){
                 console.log('success');
-                location.reload();
+                location.href = "{{url('customer')}}" + "?cust_id=" + response.data.id;
             }
         })
     });
