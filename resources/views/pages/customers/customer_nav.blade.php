@@ -16,9 +16,11 @@
                     <div class="col-sm-6">
                         <b>Business Name:</b> {{$customer->cust_business_name ?? ''}}
                     </div>
+                    <hr>
                     <div class="col-sm-6">
                         <b> Business Country:</b> {{$customer->cust_business_country ?? ''}}
                     </div>
+                    <hr>
                     <div class="col-sm-6">
                         <b>Business Telephone:</b> {{$customer->cust_business_telephone ?? ''}}
                     </div>

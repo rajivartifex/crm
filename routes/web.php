@@ -6,6 +6,7 @@ use App\Http\Controllers\BusinessContactInfoController;
 use App\Http\Controllers\BusinessCustDescController;
 use App\Http\Controllers\BusinessIdentityController;
 use App\Http\Controllers\BusinessPaymentController;
+use App\Http\Controllers\BusinessWebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Customer\CustomerController;
 
@@ -55,6 +56,11 @@ Route::get('customer/payment-method', [BusinessPaymentController::class, 'view_p
 Route::post('customer/payment-method/store', [BusinessPaymentController::class, 'view_payment_method_store'])->name('customer-payment-method-store');
 Route::post('customer/payment-method/delete', [BusinessPaymentController::class, 'view_payment_method_delete'])->name('customer-payment-method-delete');
 
+//Social Media
+Route::get('customer/web', [BusinessWebController::class, 'view_web'])->name('customer-web-index');
+Route::post('customer/web/store', [BusinessWebController::class, 'view_web_store'])->name('customer-web-store');
+Route::post('customer/web/delete', [BusinessWebController::class, 'view_web_delete'])->name('customer-web-delete');
+
 Route::get('customer/business-location', [CustomerController::class, 'view_business_location'])->name('customer-business-location-index');
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
-Route::get('customer/web', [CustomerController::class, 'view_web'])->name('customer-web-index');
+

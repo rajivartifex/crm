@@ -9,6 +9,7 @@ use App\Models\CustDescription;
 use App\Models\Customer;
 use App\Models\CustomerContactInfo;
 use App\Models\CustPayment;
+use App\Models\CustWeb;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -23,11 +24,12 @@ class CustomerController extends Controller
     {
         $customer = Customer::find($request->cust_id);
         $contactInfo = CustomerContactInfo::where('cust_id',$customer->id ?? '')->with('contact')->get();
-        $custEmp = CustAboutEmp::all();
-        $custDesc = CustDescription::all();
-        $custCategories = CustCategories::with('categories')->get();
-        $custPayments = CustPayment::all();
-        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments'));
+        $custEmp = CustAboutEmp::where('cust_id',$customer->id ?? '')->get();
+        $custDesc = CustDescription::where('cust_id',$customer->id ?? '')->get();
+        $custCategories = CustCategories::with('categories')->where('cust_id',$customer->id ?? '')->get();
+        $custPayments = CustPayment::where('cust_id',$customer->id ?? '')->get();
+        $custWebs = CustWeb::where('cust_id',$customer->id ?? '')->get();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs'));
     }
 
     public function view_business_location()
@@ -38,10 +40,5 @@ class CustomerController extends Controller
     public function view_working_hours()
     {
         return view('pages.customers.about_section.working_hours.working_hours');
-    }
-
-    public function view_web()
-    {
-        return view('pages.customers.web_section.web');
     }
 }
