@@ -71,7 +71,7 @@
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn-sm btn btn-primary">Submit</button>
-                <a href="{{route('customer-add-index',['cust_id' => $customer->id])}}" class="btn-sm btn btn-secondary">Back</a>
+                <a href="{{route('customer-add-index',['cust_id' => $customer->id ?? ''])}}" class="btn-sm btn btn-secondary">Back</a>
             </div>
         </form>
         </div>
