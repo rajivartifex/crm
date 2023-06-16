@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
 use App\Models\CustAboutEmp;
 use App\Models\CustCategories;
+use App\Models\CustComment;
 use App\Models\CustDescription;
 use App\Models\Customer;
 use App\Models\CustomerContactInfo;
@@ -29,7 +30,8 @@ class CustomerController extends Controller
         $custCategories = CustCategories::with('categories')->where('cust_id',$customer->id ?? '')->get();
         $custPayments = CustPayment::where('cust_id',$customer->id ?? '')->get();
         $custWebs = CustWeb::where('cust_id',$customer->id ?? '')->get();
-        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs'));
+        $custComments = CustComment::where('cust_id',$customer->id ?? '')->get();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs','custComments'));
     }
 
     public function view_business_location()
