@@ -41,34 +41,40 @@
                             <div class="card-header p-0 pt-1">
                                 <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Profile</a>
+                                        <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#cust-profile" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Profile</a>
                                     </li>
                                     @if($customer)
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">About</a>
+                                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#cust-about" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Payment</a>
+                                        <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#cust-payment" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Payment</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Social Media</a>
+                                        <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-web" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Social Media</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-domain" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Domain</a>
                                     </li>
                                     @endif
                                 </ul>
                             </div>
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
-                                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                                    <div class="tab-pane fade show active" id="cust-profile" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
                                         @include('pages.customers.profile_section.profle')
                                     </div>
-                                    <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                                    <div class="tab-pane fade" id="cust-about" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
                                         @include('pages.customers.about_section.about')
                                     </div>
-                                    <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
+                                    <div class="tab-pane fade" id="cust-payment" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
                                         @include('pages.customers.payment_section.payment')
                                     </div>
-                                    <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                                    <div class="tab-pane fade" id="cust-web" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
                                         @include('pages.customers.web_section.web_tbl')
+                                    </div>
+                                    <div class="tab-pane fade" id="cust-domain" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                                        @include('pages.customers.domain.bus_domain_tbl')
                                     </div>
                                 </div>
                             </div>

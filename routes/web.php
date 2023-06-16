@@ -5,6 +5,7 @@ use App\Http\Controllers\BusinessCategoriesController;
 use App\Http\Controllers\BusinessCommentController;
 use App\Http\Controllers\BusinessContactInfoController;
 use App\Http\Controllers\BusinessCustDescController;
+use App\Http\Controllers\BusinessDomainController;
 use App\Http\Controllers\BusinessIdentityController;
 use App\Http\Controllers\BusinessPaymentController;
 use App\Http\Controllers\BusinessWebController;
@@ -66,6 +67,12 @@ Route::post('customer/web/delete', [BusinessWebController::class, 'view_web_dele
 Route::get('customer/comment', [BusinessCommentController::class, 'view_comment'])->name('customer-comment-index');
 Route::post('customer/comment/store', [BusinessCommentController::class, 'view_comment_store'])->name('customer-comment-store');
 Route::post('customer/comment/delete', [BusinessCommentController::class, 'view_comment_delete'])->name('customer-comment-delete');
+
+//Business Domain
+Route::get('customer/domain', [BusinessDomainController::class, 'view_domain'])->name('customer-domain-index');
+Route::post('customer/domain/store', [BusinessDomainController::class, 'view_domain_store'])->name('customer-domain-store');
+Route::post('customer/domain/delete', [BusinessDomainController::class, 'view_domain_delete'])->name('customer-domain-delete');
+
 
 Route::get('customer/business-location', [CustomerController::class, 'view_business_location'])->name('customer-business-location-index');
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
