@@ -7,21 +7,23 @@
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
-        <div class="card">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Customer Detail</h3>
+            </div>
             <div class="card-body">
-                <h5 class="card-title">Customer Detail</h5><br /><hr>
                 <div class="row">
                     <div class="col-sm-6">
-                        Business Name: {{$customer->cust_business_name ?? ''}}
+                        <b>Business Name:</b> {{$customer->cust_business_name ?? ''}}
                     </div>
                     <div class="col-sm-6">
-                        Country this business is based in: {{$customer->cust_business_country ?? ''}}
+                        <b> Business Country:</b> {{$customer->cust_business_country ?? ''}}
                     </div>
                     <div class="col-sm-6">
-                        Business Telephone: {{$customer->cust_business_telephone ?? ''}}
+                        <b>Business Telephone:</b> {{$customer->cust_business_telephone ?? ''}}
                     </div>
                     <div class="col-sm-6">
-                        Business Website: {{$customer->cust_business_website ?? ''}}
+                        <b>Business Website:</b> {{$customer->cust_business_website ?? ''}}
                     </div>
                 </div>
             </div>
