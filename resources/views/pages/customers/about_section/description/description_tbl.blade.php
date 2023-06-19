@@ -26,16 +26,17 @@
                         @foreach($custDesc as $key => $list)
                         <tr>
                             <td>{{$key + 1}}</td>
-                            <td>{{\Str::limit($list->cust_short_desc ?? '', 70)}} <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> </td>
-                            <td>{{\Str::limit($list->cust_long_desc ?? '', 70)}} <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> </td>
-                            <td>{{\Str::limit($list->cust_alter_desc ?? '', 70)}} <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> </td>
+                            <td>{{\Str::limit($list->cust_short_desc ?? '', 70)}} @if(\Str::length($list->cust_short_desc ?? 0) >= 70 ) <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a>  @endif </td>
+                            <td>{{\Str::limit($list->cust_long_desc ?? '', 70)}} @if(\Str::length($list->cust_short_desc ?? 0) >= 70 ) <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> @endif </td>
+                            <td>{{\Str::limit($list->cust_alter_desc ?? '', 70)}} @if(\Str::length($list->cust_short_desc ?? 0) >= 70 ) <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> @endif </td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-primary btn-sm">Edit</a>
                                     <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item btn-sm" href="{{route('customer-description-index',['desc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
                                         <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-description-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
                                     </div>
                                 </div>

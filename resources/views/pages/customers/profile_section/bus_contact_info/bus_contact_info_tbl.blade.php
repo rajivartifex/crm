@@ -37,11 +37,12 @@
                             <td>{{\Carbon\Carbon::parse($list->contact->con_date ?? '')->format('d-M-Y')}}</td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="{{route('customer-business-contact-info-index',['cust_con_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{{route('customer-business-contact-info-index',['cust_con_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-primary btn-sm">Edit</a>
                                     <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item" href="{{route('customer-business-contact-info-index',['cust_con_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
                                         <button class="dropdown-item btn-delete" data-redirect-url="{{route('customer-business-contact-info-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
                                     </div>
                                 </div>

@@ -24,6 +24,7 @@ class BusinessCustDescController extends Controller
                 $desc = CustDescription::find($request['ff']['desc_id']);
             }
 
+            $desc->cust_id = $request['ff']['cust_id'];
             $desc->cust_short_desc = $request['ff']['cust_short_desc'];
             $desc->cust_long_desc = $request['ff']['cust_long_desc'];
             $desc->cust_alter_desc = $request['ff']['cust_alter_desc'];

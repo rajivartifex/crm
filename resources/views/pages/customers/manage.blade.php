@@ -43,11 +43,12 @@
                                 <td>{{$list->cust_business_name	?? ''}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{route('customer-add-index',['cust_id' => $list->id ?? ''])}}" class="btn btn-primary btn-sm">View</a>
+                                        <a href="{{route('customer-add-index',['cust_id' => $list->id ?? ''])}}" class="btn btn-primary btn-sm">Edit</a>
                                         <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
                                         <div class="dropdown-menu" role="menu">
+                                            <a class="dropdown-item" href="#">Edit</a>
                                             <a class="dropdown-item" href="#">Delete</a>
                                         </div>
                                     </div>
