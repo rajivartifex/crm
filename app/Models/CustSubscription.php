@@ -23,4 +23,14 @@ class CustSubscription extends Model
         'cust_sub_start_date',
         'cust_sub_renewal_date'
     ];
+
+    public function solution()
+    {
+        return $this->hasOne(Solution::class,'id','cust_sub_solution_id');
+    }
+
+    public function paymentmode()
+    {
+        return $this->hasOne(PaymentMode::class,'id','cust_sub_payment_mode_id');
+    }
 }

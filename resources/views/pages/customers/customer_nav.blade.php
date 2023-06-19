@@ -59,6 +59,12 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-subscription" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Hosting Subscription</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-marketing" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Marketing</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-support" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Support</a>
+                                    </li>
                                     @endif
                                 </ul>
                             </div>
@@ -81,6 +87,12 @@
                                     </div>
                                     <div class="tab-pane fade" id="cust-subscription" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
                                         @include('pages.customers.subscription.bus_subscription_tbl')
+                                    </div>
+                                    <div class="tab-pane fade" id="cust-marketing" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                                        @include('pages.customers.marketing.bus_marketing_tbl')
+                                    </div>
+                                    <div class="tab-pane fade" id="cust-support" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                                        @include('pages.customers.support.bus_support_tbl')
                                     </div>
                                 </div>
                             </div>

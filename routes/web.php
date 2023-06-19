@@ -7,8 +7,10 @@ use App\Http\Controllers\BusinessContactInfoController;
 use App\Http\Controllers\BusinessCustDescController;
 use App\Http\Controllers\BusinessDomainController;
 use App\Http\Controllers\BusinessIdentityController;
+use App\Http\Controllers\BusinessMarketingController;
 use App\Http\Controllers\BusinessPaymentController;
 use App\Http\Controllers\BusinessSubscriptionController;
+use App\Http\Controllers\BusinessSupportController;
 use App\Http\Controllers\BusinessWebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Customer\CustomerController;
@@ -78,6 +80,16 @@ Route::post('customer/domain/delete', [BusinessDomainController::class, 'view_do
 Route::get('customer/subscription', [BusinessSubscriptionController::class, 'view_subscription'])->name('customer-subscription-index');
 Route::post('customer/subscription/store', [BusinessSubscriptionController::class, 'view_subscription_store'])->name('customer-subscription-store');
 Route::post('customer/subscription/delete', [BusinessSubscriptionController::class, 'view_subscription_delete'])->name('customer-subscription-delete');
+
+//Business Marketing
+Route::get('customer/marketing', [BusinessMarketingController::class, 'view_marketing'])->name('customer-marketing-index');
+Route::post('customer/marketing/store', [BusinessMarketingController::class, 'view_marketing_store'])->name('customer-marketing-store');
+Route::post('customer/marketing/delete', [BusinessMarketingController::class, 'view_marketing_delete'])->name('customer-marketing-delete');
+
+//Business Support
+Route::get('customer/support', [BusinessSupportController::class, 'view_support'])->name('customer-support-index');
+Route::post('customer/support/store', [BusinessSupportController::class, 'view_support_store'])->name('customer-support-store');
+Route::post('customer/support/delete', [BusinessSupportController::class, 'view_support_delete'])->name('customer-support-delete');
 
 Route::get('customer/business-location', [CustomerController::class, 'view_business_location'])->name('customer-business-location-index');
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
