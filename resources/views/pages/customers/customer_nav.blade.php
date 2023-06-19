@@ -56,6 +56,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-domain" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Domain</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-subscription" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Hosting Subscription</a>
+                                    </li>
                                     @endif
                                 </ul>
                             </div>
@@ -75,6 +78,9 @@
                                     </div>
                                     <div class="tab-pane fade" id="cust-domain" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
                                         @include('pages.customers.domain.bus_domain_tbl')
+                                    </div>
+                                    <div class="tab-pane fade" id="cust-subscription" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                                        @include('pages.customers.subscription.bus_subscription_tbl')
                                     </div>
                                 </div>
                             </div>

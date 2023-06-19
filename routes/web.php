@@ -8,6 +8,7 @@ use App\Http\Controllers\BusinessCustDescController;
 use App\Http\Controllers\BusinessDomainController;
 use App\Http\Controllers\BusinessIdentityController;
 use App\Http\Controllers\BusinessPaymentController;
+use App\Http\Controllers\BusinessSubscriptionController;
 use App\Http\Controllers\BusinessWebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Customer\CustomerController;
@@ -73,6 +74,10 @@ Route::get('customer/domain', [BusinessDomainController::class, 'view_domain'])-
 Route::post('customer/domain/store', [BusinessDomainController::class, 'view_domain_store'])->name('customer-domain-store');
 Route::post('customer/domain/delete', [BusinessDomainController::class, 'view_domain_delete'])->name('customer-domain-delete');
 
+//Business Subscription
+Route::get('customer/subscription', [BusinessSubscriptionController::class, 'view_subscription'])->name('customer-subscription-index');
+Route::post('customer/subscription/store', [BusinessSubscriptionController::class, 'view_subscription_store'])->name('customer-subscription-store');
+Route::post('customer/subscription/delete', [BusinessSubscriptionController::class, 'view_subscription_delete'])->name('customer-subscription-delete');
 
 Route::get('customer/business-location', [CustomerController::class, 'view_business_location'])->name('customer-business-location-index');
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');

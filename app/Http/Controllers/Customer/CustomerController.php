@@ -11,6 +11,7 @@ use App\Models\CustDomain;
 use App\Models\Customer;
 use App\Models\CustomerContactInfo;
 use App\Models\CustPayment;
+use App\Models\CustSubscription;
 use App\Models\CustWeb;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,8 @@ class CustomerController extends Controller
         $custWebs = CustWeb::where('cust_id',$customer->id ?? '')->get();
         $custComments = CustComment::where('cust_id',$customer->id ?? '')->get();
         $custDomains = CustDomain::where('cust_id',$customer->id ?? '')->get();
-        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs','custComments','custDomains'));
+        $custSubscription = CustSubscription::where('cust_id',$customer->id)->get();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs','custComments','custDomains','custSubscription'));
     }
 
     public function view_business_location()
