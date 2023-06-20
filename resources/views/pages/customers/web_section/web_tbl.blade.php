@@ -65,13 +65,13 @@
                 </div>
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <a class="btn-sm btn btn-primary add_web_link_btn float-right"><i class="fas fa-plus"></i> Social Media</a>
+                        <a class="btn-sm btn btn-secondary add_web_link_btn float-right"><i class="fas fa-plus"></i> Social Media</a>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn-sm btn btn-primary">Submit</button>
-                <a href="{{route('customer-add-index',['cust_id' => $customer->id ?? ''])}}" class="btn-sm btn btn-secondary">Back</a>
+                <button type="submit" class="btn-sm btn btn-secondary">Submit</button>
+                <a href="{{route('customer-add-index',['cust_id' => $customer->id ?? ''])}}" class="btn-sm btn btn-default">Back</a>
             </div>
         </form>
         </div>

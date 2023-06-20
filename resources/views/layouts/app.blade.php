@@ -37,7 +37,8 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="{{asset('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
-
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
     @yield('style')
 </head>
 

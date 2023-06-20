@@ -47,8 +47,8 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="#" class="btn btn-secondary">Back</button>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+            <button type="#" class="btn btn-default">Back</button>
         </div>
     </form>
 </div>

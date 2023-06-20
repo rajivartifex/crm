@@ -1,0 +1,19 @@
+.nav-pills .nav-link{
+    border-radius: 10px;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active{
+    background-color: #6c757d;
+}
+
+.card-primary:not(.card-outline)>.card-header{
+    background-color: #6c757d;
+}
+
+.page-item.active .page-link{
+    background-color: #6c757d;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before{
+    background-color: #6c757d;
+}

@@ -6,7 +6,7 @@
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
                         <div class="input-group-append">
-                            <a href="{{route('customer-comment-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-primary" type="button">New</a>
+                            <a href="{{route('customer-comment-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
                         </div>
                     </div>
                 </div>
@@ -27,8 +27,8 @@
                             <td>{{\Str::limit($list->comment ?? '', 70)}} @if(\Str::length($list->comment ?? 0) >= 70 ) <a href="{{route('customer-comment-index',['c_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}">Read More</a> @endif</td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="{{route('customer-comment-index',['c_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-primary btn-sm">Edit</a>
-                                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    <a href="{{route('customer-comment-index',['c_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
+                                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">

@@ -69,8 +69,8 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary business-contact-info-submit">Submit</button>
-            <a href="{{route('customer-add-index',['cust_id' => $customer->id])}}" type="button" class="btn btn-secondary">Back</a>
+            <button type="submit" class="btn btn-secondary btn-sm business-contact-info-submit">Submit</button>
+            <a href="{{route('customer-add-index',['cust_id' => $customer->id])}}" type="button" class="btn btn-default btn-sm">Back</a>
         </div>
     </form>
 </div>
