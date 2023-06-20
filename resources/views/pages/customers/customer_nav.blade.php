@@ -65,6 +65,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-support" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Support</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#cust-log" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Log</a>
+                                    </li>
                                     @endif
                                 </ul>
                             </div>
@@ -93,6 +96,9 @@
                                     </div>
                                     <div class="tab-pane fade" id="cust-support" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
                                         @include('pages.customers.support.bus_support_tbl')
+                                    </div>
+                                    <div class="tab-pane fade" id="cust-log" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                                        @include('pages.customers.logs.log')
                                     </div>
                                 </div>
                             </div>

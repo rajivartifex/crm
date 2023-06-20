@@ -7,6 +7,7 @@ use App\Http\Controllers\BusinessContactInfoController;
 use App\Http\Controllers\BusinessCustDescController;
 use App\Http\Controllers\BusinessDomainController;
 use App\Http\Controllers\BusinessIdentityController;
+use App\Http\Controllers\BusinessLogController;
 use App\Http\Controllers\BusinessMarketingController;
 use App\Http\Controllers\BusinessPaymentController;
 use App\Http\Controllers\BusinessSubscriptionController;
@@ -90,6 +91,9 @@ Route::post('customer/marketing/delete', [BusinessMarketingController::class, 'v
 Route::get('customer/support', [BusinessSupportController::class, 'view_support'])->name('customer-support-index');
 Route::post('customer/support/store', [BusinessSupportController::class, 'view_support_store'])->name('customer-support-store');
 Route::post('customer/support/delete', [BusinessSupportController::class, 'view_support_delete'])->name('customer-support-delete');
+
+//Business Log
+Route::post('customer/log/store', [BusinessLogController::class, 'view_log_store'])->name('customer-log-store');
 
 Route::get('customer/business-location', [CustomerController::class, 'view_business_location'])->name('customer-business-location-index');
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');

@@ -8,6 +8,7 @@ use App\Models\CustCategories;
 use App\Models\CustComment;
 use App\Models\CustDescription;
 use App\Models\CustDomain;
+use App\Models\CustLog;
 use App\Models\CustMarketing;
 use App\Models\Customer;
 use App\Models\CustomerContactInfo;
@@ -39,7 +40,8 @@ class CustomerController extends Controller
         $custSubscription = CustSubscription::with(['solution','paymentmode'])->where('cust_id',$customer->id ?? '')->get();
         $custMarketing = CustMarketing::with(['marketingtype','paymentmode'])->where('cust_id',$customer->id ?? '')->get();
         $custSupport = CustSupport::with(['marketingType','paymentMode'])->where('cust_id',$customer->id ?? '')->get();
-        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs','custComments','custDomains','custSubscription','custMarketing','custSupport'));
+        $custLogs = CustLog::where('cust_id',$customer->id ?? '')->get();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs','custComments','custDomains','custSubscription','custMarketing','custSupport','custLogs'));
     }
 
     public function view_business_location()

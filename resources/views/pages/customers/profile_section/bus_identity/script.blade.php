@@ -112,7 +112,7 @@ $(document).ready(function(){
         })
     });
 
-    /* Add  */
+    /* Add social link*/
     var m = 0;
     $(".add_web_link_btn").click(function () {
         ++m;
@@ -142,6 +142,7 @@ $(document).ready(function(){
         $(".media_link_dynamic").append(media_link);
     });
 
+    /* business web form submit event */
     var cust_id = $(`input[name="ff[cust_id]"]`).val();
     $(".business-web-form").submit(function(e){
         e.preventDefault();
@@ -175,6 +176,53 @@ $(document).ready(function(){
             success:function(response){
                 console.log(response.data);
                 location.href = "{{url('customer')}}" + "?cust_id=" + cust_id;
+            }
+        })
+    });
+
+    /* business log form submit event */
+    $('.cust_log').keypress(function (e) {
+        if (e.which == 13) {
+            $(".business-log-form").submit(function(e){
+                e.preventDefault();
+                var form_data = new FormData(this);
+
+                $.ajax({
+                    url: "{{url('customer/log/store')}}",
+                    type:"POST",
+                    contentType: false,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: form_data,
+                    dataType: 'json',
+                    processData: false,
+                    success:function(response){
+                        console.log('success');
+                        location.href = "{{url('customer')}}" + "?cust_id=" + response.data.cust_id;
+                    }
+                })
+            });
+        }
+    });
+
+    $(".business-log-form").submit(function(e){
+        e.preventDefault();
+        var form_data = new FormData(this);
+
+        $.ajax({
+            url: "{{url('customer/log/store')}}",
+            type:"POST",
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: form_data,
+            dataType: 'json',
+            processData: false,
+            success:function(response){
+                console.log('success');
+                location.href = "{{url('customer')}}" + "?cust_id=" + response.data.cust_id;
             }
         })
     });
