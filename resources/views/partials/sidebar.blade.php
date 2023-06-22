@@ -22,8 +22,8 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('customer-manage-index')}}" class="nav-link {{ request()->is('customer*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user-tie"></i>
-                                <p>Manage Customers</p>
+                                <i class="nav-icon fas fa-user-tie sub-menu-margin-left"></i>
+                                <p class="sub-menu-font">Manage Customers</p>
                             </a>
                         </li>
                     </ul>

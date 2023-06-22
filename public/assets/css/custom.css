@@ -18,3 +18,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before{
     background-color: #6c757d;
 }
 
+.sub-menu-font{
+    font-size: 14px;
+}
+
+.sub-menu-margin-left{
+    margin-left: 20px !important;
+}
