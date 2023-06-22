@@ -34,7 +34,7 @@
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-sm btn-secondary business-identity-submit">Submit</button>
-            <button type="#" class="btn btn-sm btn-default">Back</button>
+            {{-- <button type="#" class="btn btn-sm btn-default">Back</button> --}}
         </div>
     </form>
 </div>
