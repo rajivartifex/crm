@@ -56,6 +56,34 @@ $(document).ready(function(){
         });
     });
 
+    /* business domain table init */
+    $(function () {
+        $("#business-domain-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
+    /* business subscription table init */
+    $(function () {
+        $("#business-subscription-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
+    /* business marketing table init */
+    $(function () {
+        $("#business-marketing-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
+    /* business support table init */
+    $(function () {
+        $("#business-support-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
     /* business identity form submit event */
     $(".business-identity-form").submit(function(e){
         e.preventDefault();
@@ -206,6 +234,7 @@ $(document).ready(function(){
         }
     });
 
+    /* business log form submit event */
     $(".business-log-form").submit(function(e){
         e.preventDefault();
         var form_data = new FormData(this);
