@@ -53,4 +53,10 @@ class CustomerController extends Controller
     {
         return view('pages.customers.about_section.working_hours.working_hours');
     }
+
+    public function customer_delete(Request $request)
+    {
+        Customer::find($request->id)->delete();
+        return response()->json(['success' => 'Customer deleted successfully!','title' => 'Customer']);
+    }
 }

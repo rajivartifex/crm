@@ -13,8 +13,6 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    {{-- <li class="breadcrumb-item"><a href="#" class="btn btn-sm btn-primary">Back</a></li> --}}
-                    {{-- <li class="breadcrumb-item active">DataTables</li> --}}
                 </ol>
             </div>
         </div>
@@ -30,19 +28,19 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Location *</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputEmail1">
+                        <input type="text" class="form-control form-control-sm location" id="location" name="location">
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="form-group">
+                    <div class="form-group" id="latitudeArea">
                         <label for="exampleInputPassword1">Address Line 1 *</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputPassword1">
+                        <input type="text" class="form-control form-control-sm" id="latitude">
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="form-group">
+                    <div class="form-group" id="longtitudeArea">
                         <label for="exampleInputPassword1">Address Line 2 *</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputPassword1">
+                        <input type="text" class="form-control form-control-sm" id="longitude">
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -77,6 +75,29 @@
         </div>
     </form>
 </div>
+<div id="map" style="width: 100%; height: 400px;"></div>
 @endsection
 @section('script')
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDHgoyPtj7Z1Yvbit75Z4DqbBkknQCmTjg&libraries=places" ></script>
+<script>
+$(document).ready(function () {
+    $("#latitudeArea").addClass("d-none");
+    $("#longtitudeArea").addClass("d-none");
+});
+
+google.maps.event.addDomListener(window, 'load', initialize);
+function initialize() {
+    var input = document.getElementById('location');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+
+    autocomplete.addListener('place_changed', function () {
+        var place = autocomplete.getPlace();
+        $('#latitude').val(place.geometry['location'].lat());
+        $('#longitude').val(place.geometry['location'].lng());
+        $("#latitudeArea").removeClass("d-none");
+        $("#longtitudeArea").removeClass("d-none");
+    });
+}
+</script>
+
 @endsection

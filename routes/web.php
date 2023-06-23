@@ -7,6 +7,7 @@ use App\Http\Controllers\BusinessContactInfoController;
 use App\Http\Controllers\BusinessCustDescController;
 use App\Http\Controllers\BusinessDomainController;
 use App\Http\Controllers\BusinessIdentityController;
+use App\Http\Controllers\BusinessLocationController;
 use App\Http\Controllers\BusinessLogController;
 use App\Http\Controllers\BusinessMarketingController;
 use App\Http\Controllers\BusinessPaymentController;
@@ -33,6 +34,8 @@ Route::get('/', function () {
 
 Route::get('customer/manage-index', [CustomerController::class, 'manageIndex'])->name('customer-manage-index');
 Route::get('customer', [CustomerController::class, 'addIndex'])->name('customer-add-index');
+Route::post('customer/delete', [CustomerController::class, 'customer_delete'])->name('customer-delete');
+
 //Business Identity
 Route::get('customer/business-identity', [BusinessIdentityController::class, 'view_business_identity'])->name('customer-business-identity-index');
 Route::post('customer/business-identity/store', [BusinessIdentityController::class, 'business_identity_store'])->name('customer-business-identity-store');
@@ -95,6 +98,8 @@ Route::post('customer/support/delete', [BusinessSupportController::class, 'view_
 //Business Log
 Route::post('customer/log/store', [BusinessLogController::class, 'view_log_store'])->name('customer-log-store');
 
-Route::get('customer/business-location', [CustomerController::class, 'view_business_location'])->name('customer-business-location-index');
+//Business Location
+Route::get('customer/business-location', [BusinessLocationController::class, 'view_business_location'])->name('customer-business-location-index');
+
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
 
