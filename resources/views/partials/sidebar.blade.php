@@ -28,7 +28,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ (request()->is('settings*') ? 'active menu-open' : '') }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
@@ -38,15 +38,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('users.index')}}" class="nav-link {{ request()->is('settings/users*') ? 'active' : ''}}">
                                 <i class="nav-icon fas fa-user sub-menu-margin-left"></i>
                                 <p class="sub-menu-font">Manage User</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('roles.index')}}" class="nav-link {{ request()->is('settings/roles*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-wrench sub-menu-margin-left"></i>
-                                <p class="sub-menu-font">Configuration</p>
+                                <p class="sub-menu-font">Roles</p>
                             </a>
                         </li>
                     </ul>

@@ -16,6 +16,8 @@ use App\Http\Controllers\BusinessSupportController;
 use App\Http\Controllers\BusinessWebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Customer\CustomerController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,17 @@ use App\Http\Controllers\Customer\CustomerController;
 Route::get('/', function () {
     return view('layouts.app');
 });
+
+Route::group(['middleware' => ['auth']], function() {
+
+
+});
+
+Route::resource('settings/roles', RoleController::class);
+Route::post('settings/roles/delete', [RoleController::class,'roles_delete'])->name('roles-delete');
+Route::resource('settings/users', UserController::class);
+Route::post('settings/users/delete', [UserController::class,'users_delete'])->name('users-delete');
+
 
 Route::get('customer/manage-index', [CustomerController::class, 'manageIndex'])->name('customer-manage-index');
 Route::get('customer', [CustomerController::class, 'addIndex'])->name('customer-add-index');

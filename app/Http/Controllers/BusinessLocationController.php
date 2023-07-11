@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class BusinessLocationController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:location-list|location-create|location-edit|location-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:location-create', ['only' => ['create','store']]);
+         $this->middleware('permission:location-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:location-delete', ['only' => ['destroy']]);
+    }
+
     public function view_business_location(Request $request)
     {
         $customer = Customer::find($request->cust_id);
