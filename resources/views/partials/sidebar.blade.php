@@ -17,7 +17,7 @@
                 <li class="nav-item {{ (request()->is('customer*') ? 'active menu-open' : '') }}">
                     <a href="#" class="nav-link {{ (request()->is('customer*') ? 'active' : '') }}">
                         <i class="nav-icon fas fa-user-tie"></i>
-                        <p> Customer <i class="fas fa-angle-left right"></i> </p>
+                        <p> Customer <i class="fas fa-caret-right right"></i> </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -33,7 +33,7 @@
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
                             Settings
-                            <i class="fas fa-angle-left right"></i>
+                            <i class="fas fa-caret-right right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">

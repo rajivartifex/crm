@@ -100,6 +100,8 @@ Route::post('customer/log/store', [BusinessLogController::class, 'view_log_store
 
 //Business Location
 Route::get('customer/business-location', [BusinessLocationController::class, 'view_business_location'])->name('customer-business-location-index');
+Route::post('customer/business-location/store', [BusinessLocationController::class, 'view_business_location_store'])->name('customer-business-location-store');
+Route::post('customer/business-location/delete', [BusinessLocationController::class, 'view_business_location_delete'])->name('customer-business-location-delete');
 
 Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
 

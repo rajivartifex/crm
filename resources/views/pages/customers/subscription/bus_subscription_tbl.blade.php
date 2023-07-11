@@ -54,20 +54,6 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>Website Name</th>
-                            <th>Domain Name</th>
-                            <th>Solution Type</th>
-                            <th>Plan</th>
-                            <th>Pricing</th>
-                            <th>Payment Modes</th>
-                            <th>Start Date</th>
-                            <th>Renewal Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

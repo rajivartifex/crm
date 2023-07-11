@@ -84,6 +84,13 @@ $(document).ready(function(){
         });
     });
 
+    /* business location table init */
+    $(function () {
+        $("#business-location-tbl").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+        });
+    });
+
     /* business identity form submit event */
     $(".business-identity-form").submit(function(e){
         e.preventDefault();

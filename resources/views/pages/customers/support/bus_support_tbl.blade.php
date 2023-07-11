@@ -52,19 +52,6 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>Product Name</th>
-                            <th>Support Type</th>
-                            <th>Start Date</th>
-                            <th>Renewal Date</th>
-                            <th>Plan</th>
-                            <th>Pricing</th>
-                            <th>Payment Modes</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
