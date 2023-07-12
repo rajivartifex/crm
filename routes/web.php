@@ -20,6 +20,7 @@ use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BusinessWorkingHoursController;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,6 +132,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     //Working Hours
     Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
+    Route::post('customer/working-hours/store', [BusinessWorkingHoursController::class, 'working_hours_store'])->name('customer-business-working-hours-store');
 
 });
 

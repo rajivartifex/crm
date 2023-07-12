@@ -303,5 +303,27 @@ $(document).ready(function(){
             }
         }
     });
+
+    /* working hours submit event */
+    $(".working-hours").submit(function(e){
+        e.preventDefault();
+        var form_data = new FormData(this);
+
+        $.ajax({
+            url: "{{url('customer/working-hours/store')}}",
+            type:"POST",
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: form_data,
+            dataType: 'json',
+            processData: false,
+            success:function(response){
+                console.log('success');
+                location.href = "{{url('customer')}}" + "?cust_id=" + response.data.cust_id;
+            }
+        })
+    });
 });
 </script>

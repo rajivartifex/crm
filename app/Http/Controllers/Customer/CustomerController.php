@@ -17,6 +17,7 @@ use App\Models\CustPayment;
 use App\Models\CustSubscription;
 use App\Models\CustSupport;
 use App\Models\CustWeb;
+use App\Models\CustWorkingHours;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -43,7 +44,8 @@ class CustomerController extends Controller
         $custSupport = CustSupport::with(['marketingType','paymentMode'])->where('cust_id',$customer->id ?? '')->get();
         $custLogs = CustLog::where('cust_id',$customer->id ?? '')->get();
         $custLocation = CustLocation::where('cust_id',$customer->id ?? '')->get();
-        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs','custComments','custDomains','custSubscription','custMarketing','custSupport','custLogs','custLocation'));
+        $workingHours = CustWorkingHours::where('cust_id',$customer->id ?? '')->first();
+        return view('pages.customers.customer_nav',compact('customer','contactInfo','custEmp','custDesc','custCategories','custPayments','custWebs','custComments','custDomains','custSubscription','custMarketing','custSupport','custLogs','custLocation','workingHours'));
     }
 
     public function view_business_location()
