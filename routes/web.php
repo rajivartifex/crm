@@ -32,10 +32,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
-
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
@@ -45,7 +41,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::group(['middleware' => ['auth']], function() {
     //Dashboard
-    Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 
     //Roles
     Route::resource('settings/roles', RoleController::class);
