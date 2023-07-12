@@ -10,7 +10,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('dashboard')}}" class="nav-link {{ request()->is('dashboard*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i> <p> Dashboard </p>
                     </a>
                 </li>
@@ -22,7 +22,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('customer-manage-index')}}" class="nav-link {{ request()->is('customer*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-user-tie sub-menu-margin-left"></i>
+                                <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
                                 <p class="sub-menu-font">Manage Customers</p>
                             </a>
                         </li>
@@ -39,13 +39,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('users.index')}}" class="nav-link {{ request()->is('settings/users*') ? 'active' : ''}}">
-                                <i class="nav-icon fas fa-user sub-menu-margin-left"></i>
+                                <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
                                 <p class="sub-menu-font">Manage User</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('roles.index')}}" class="nav-link {{ request()->is('settings/roles*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-wrench sub-menu-margin-left"></i>
+                                <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
                                 <p class="sub-menu-font">Roles</p>
                             </a>
                         </li>

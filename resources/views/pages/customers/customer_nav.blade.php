@@ -48,6 +48,9 @@
                                         <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#cust-about" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">About</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-one-working-hours-tab" data-toggle="pill" href="#cust-working-hours" role="tab" aria-controls="custom-tabs-one-working-hours" aria-selected="false">Working Hours</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#cust-payment" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Payment</a>
                                     </li>
                                     <li class="nav-item">
@@ -78,6 +81,9 @@
                                     </div>
                                     <div class="tab-pane fade" id="cust-about" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
                                         @include('pages.customers.about_section.about')
+                                    </div>
+                                    <div class="tab-pane fade" id="cust-working-hours" role="tabpanel" aria-labelledby="custom-tabs-one-working-hours">
+                                        @include('pages.customers.working_hours.index')
                                     </div>
                                     <div class="tab-pane fade" id="cust-payment" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
                                         @include('pages.customers.payment_section.payment')
