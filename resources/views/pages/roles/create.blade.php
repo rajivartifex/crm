@@ -35,20 +35,21 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Permission</label>
-                        <br/>
-                        @if(!empty($rolePermissions))
-                            @foreach($permission as $value)
-                                <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-                                {{ $value->name }}</label>
-                            <br/>
-                            @endforeach
-                        @else
-                            @foreach($permission as $value)
-                                <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
-                                {{ $value->name }}</label>
-                            <br/>
-                            @endforeach
-                        @endif
+                        <div class="checkbox-list">
+                            @if(!empty($rolePermissions))
+                                @foreach($permission as $value)
+                                    <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
+                                    {{ $value->name }}</label>
+                                <br/>
+                                @endforeach
+                            @else
+                                @foreach($permission as $value)
+                                    <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
+                                    {{ $value->name }}</label>
+                                <br/>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

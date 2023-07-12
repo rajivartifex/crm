@@ -13,5 +13,10 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('signout')}}" role="button">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </li>
     </ul>
 </nav>

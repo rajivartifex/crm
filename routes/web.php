@@ -43,6 +43,12 @@ Route::group(['middleware' => ['auth']], function() {
     //Dashboard
     Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 
+    //Profile Update
+    Route::get('settings/profile-update', [DashboardController::class, 'profile_update'])->name('profile-update');
+    Route::post('settings/profile-store', [DashboardController::class, 'profile_store'])->name('profile-store');
+    Route::get('settings/password-reset', [DashboardController::class, 'password_reset'])->name('password-reset');
+    Route::post('settings/change-password', [DashboardController::class, 'change_password'])->name('change-password');
+
     //Roles
     Route::resource('settings/roles', RoleController::class);
     Route::post('settings/roles/delete', [RoleController::class,'roles_delete'])->name('roles-delete');

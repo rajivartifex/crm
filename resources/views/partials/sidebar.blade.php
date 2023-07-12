@@ -38,6 +38,12 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{route('profile-update')}}" class="nav-link {{ request()->is('settings/profile*') ? 'active' : '' }}">
+                                <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
+                                <p class="sub-menu-font">Profile Update</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{route('users.index')}}" class="nav-link {{ request()->is('settings/users*') ? 'active' : ''}}">
                                 <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
                                 <p class="sub-menu-font">Manage User</p>
