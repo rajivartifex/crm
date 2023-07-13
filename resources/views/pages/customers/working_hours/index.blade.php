@@ -45,7 +45,7 @@
                             </div>
                         <?php endforeach; ?>
                     @else
-                        <?php foreach(['monday'=>'Monday','tuesday'=>'Tuesday','wednesday'=>'Wednesday','thursday'=>'Thursday','friday'=>'Friday','saturday'=>'Saturday','sunday'=>'Sunday'] as $k => $v): ?>
+                        <?php foreach(['monday'=>'monday','tuesday'=>'tuesday','wednesday'=>'wednesday','thursday'=>'thursday','friday'=>'friday','saturday'=>'saturday','sunday'=>'sunday'] as $k => $v): ?>
                             <div class="row xui-sec-opening">
                                 <div class="col form-group mb-3">
                                     <div class="input-group input-group-sm" id="id-field-opening[<?=$k?>]">
