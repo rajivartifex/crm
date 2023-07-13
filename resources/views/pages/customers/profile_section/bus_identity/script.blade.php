@@ -263,6 +263,10 @@ $(document).ready(function(){
         })
     });
 
+    $(document).ready(function(){
+        $('.xui-field-opening').trigger('change');
+    });
+
     $(document).on('click','.xui-act-apply_all',function(){
         var section$ = $(this).closest('.xui-sec-opening');
         var state = section$.find('.xui-field-opening').val();

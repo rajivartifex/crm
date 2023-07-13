@@ -17,7 +17,7 @@ class BusinessWorkingHoursController extends Controller
                 $workingHours->save();
             }else{
                 $workingHours = CustWorkingHours::find($request['ff']['working_hours_id']);
-                $workingHours->cust_working_hours = $request->opening;
+                $workingHours->cust_working_hours = json_encode($request['opening']);
                 $workingHours->save();
             }
             session()->flash('success', 'Business working hours updated successfully!');
