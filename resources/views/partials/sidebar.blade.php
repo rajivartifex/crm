@@ -1,7 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-        <span class="brand-text font-weight-light">CRM</span>
+    <a href="#" class="brand-link" style="text-align: center">
+        {{-- <img src="{{asset('assets/img/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"> --}}
+        <span class="brand-text font-weight-bold">CYBER<span style="color:orange;">NETWORKS</span></span>
     </a>
 
     <!-- Sidebar -->
