@@ -263,6 +263,21 @@ $(document).ready(function(){
         })
     });
 
+    var button = $('.logSubmit');
+    button.prop('disabled', true); // Disable the button
+
+    $('.cust_log').on('keyup', function() {
+
+        var input1 = $('.cust_log').val();
+
+        // Check if both inputs are empty
+        if (input1 === '') {
+            button.prop('disabled', true); // Disable the button
+        } else {
+            button.prop('disabled', false); // Enable the button
+        }
+    });
+
     $(document).ready(function(){
         $('.xui-field-opening').trigger('change');
     });

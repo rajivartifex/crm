@@ -128,6 +128,24 @@
                 toastr.info('{{ Session::get('success') }}','{{ Session::get('title')}}');
             @endif
         });
+
+        $(document).ready(function() {
+            // Check if there's a saved tab in localStorage or sessionStorage
+            var activeTab = sessionStorage.getItem('activeTab');
+
+            // If there's a saved tab, activate it; otherwise, activate the first tab
+            if (activeTab) {
+                $('.nav-tabs a[href="' + activeTab + '"]').tab('show');
+            } else {
+                $('.nav-tabs a:first').tab('show');
+            }
+
+            // Save the selected tab to localStorage or sessionStorage when a tab is clicked
+            $('.nav-tabs a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+                var selectedTab = $(e.target).attr('href');
+                sessionStorage.setItem('activeTab', selectedTab);
+            });
+        });
     </script>
     @yield('bottom-js')
 </body>

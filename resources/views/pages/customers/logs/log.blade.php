@@ -31,9 +31,9 @@
                 </div>
             </div>
             <div class="input-group">
-                <input type="text" name="ff[cust_log]" placeholder="Type Message ..." class="form-control cust_log">
+                <input type="text" name="ff[cust_log]" placeholder="Type Message ..." class="form-control cust_log" onkeydown="return (event.keyCode!=13);">
                 <span class="input-group-append">
-                    <button type="submit" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> &nbsp; Send</button>
+                    <button type="submit" class="btn btn-secondary logSubmit"><i class="fas fa-paper-plane"></i> &nbsp; Send</button>
                 </span>
             </div>
         </div>
