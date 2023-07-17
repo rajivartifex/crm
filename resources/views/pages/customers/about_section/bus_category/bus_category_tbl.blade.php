@@ -30,7 +30,9 @@
                                 $serviceTags = \App\Models\ServiceTag::where('cust_categories_id',$list->id)->pluck('service_tag')->toArray();
                             ?>
                             <td>
-                                {{ implode(',', $serviceTags)}}
+                                @foreach($serviceTags as $tag)
+                                    <span class="badge badge-primary">{{$tag}}</span>
+                                @endforeach
                             </td>
                             <td>
                                 <div class="btn-group">

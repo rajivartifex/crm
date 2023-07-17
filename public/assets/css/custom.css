@@ -95,6 +95,23 @@ label:not(.form-check-label):not(.custom-file-label){ font-size:0.75rem;}
 .select2-container--default .select2-selection--multiple .select2-selection__choice{ background-color:#7367f0 !important; border-color:#7367f0 !important;}
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{ color:#fff !important;}
 
+.working-hours .input-group-text{ background-color:#7367f0; border-color:#7367f0; color:#fff; padding-top:0; padding-bottom:0; border-top-right-radius: 0; border-bottom-right-radius: 0; text-transform: capitalize; font-size:.85rem; font-weight:500;}
+
+.working-hours .xui-act-apply_all{ position:absolute; right:20px; top:3px;}
+
+.btn-outline-secondary{ border-color:#7367f0; color:#7367f0;}
+.btn-outline-secondary:hover{ background-color:#7367f0;}
+
+.select2-container .select2-selection--single{ height:32px !important;}
+.select2-container--default .select2-selection--single .select2-selection__rendered{ margin-top:-6px !important; padding-left:0 !important;}
+select.form-control-sm~.select2-container--default{ font-size:100% !important;}
+.text-sm .select2-container--default .select2-selection--single .select2-selection__arrow, select.form-control-sm~.select2-container--default .select2-selection--single .select2-selection__arrow{ top:1px;}
+
+.input-group-text{ font-size:.85rem; background-color: #7367f0 !important; border-color:#7367f0 !important; color:#fff;}
+.form-control{ font-size:.85rem;}
+
+.badge-primary{ font-size:0.8125rem; font-weight:500; background-color:#7367f0;}
+
 /*===========================Login Page===========================*/
 
 body.login-page{ background-position: center center; background-repeat: no-repeat; background-size: cover; position:relative;}

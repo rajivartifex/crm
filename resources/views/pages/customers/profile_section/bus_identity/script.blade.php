@@ -268,7 +268,7 @@ $(document).ready(function(){
     });
 
     $(document).on('click','.xui-act-apply_all',function(){
-        var section$ = $(this).closest('.xui-sec-opening');
+        var section$ = $(this).closest('.card-body');
         var state = section$.find('.xui-field-opening').val();
         var from_0 = section$.find('.xui-mk-0 input.xui-mk-from').val();
         var till_0 = section$.find('.xui-mk-0 input.xui-mk-till').val();
