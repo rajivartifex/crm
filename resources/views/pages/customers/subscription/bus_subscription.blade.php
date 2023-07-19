@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Solution Type</label>
+                        <label for="exampleInputEmail1">Payment Mode</label>
                         <select class="form-control form-control-sm select2" name="ff[cust_sub_payment_mode_id]">
                             @foreach($paymentMode as $mode)
                             <option value="{{$mode->id}}" {{$custSub ? ($custSub->cust_sub_payment_mode_id == $mode->id ? 'selected' : '') : ''}}>{{$mode->type}}</option>

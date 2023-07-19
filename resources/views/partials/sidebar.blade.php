@@ -56,6 +56,12 @@
                                 <p class="sub-menu-font">Roles</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('enum-index')}}" class="nav-link {{ request()->is('settings/enum*') ? 'active' : '' }}">
+                                <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
+                                <p class="sub-menu-font">Enum Setting</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>

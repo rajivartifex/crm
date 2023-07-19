@@ -21,6 +21,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BusinessWorkingHoursController;
+use App\Http\Controllers\EnumSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,21 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
     //Roles
     Route::resource('settings/roles', RoleController::class);
     Route::post('settings/roles/delete', [RoleController::class,'roles_delete'])->name('roles-delete');
+
+    //Enum Settings
+    Route::get('settings/enum',[EnumSettingController::class, 'index'])->name('enum-index');
+    Route::get('settings/payment-form',[EnumSettingController::class, 'payment_form'])->name('enum-payment-form');
+    Route::post('settings/payment-store',[EnumSettingController::class,'payment_store'])->name('enum-payment-store');
+    Route::post('settings/payment/delete', [EnumSettingController::class, 'payment_delete'])->name('enum-payment-delete');
+    Route::get('settings/solution-form',[EnumSettingController::class, 'solution_form'])->name('enum-solution-form');
+    Route::post('settings/solution-store',[EnumSettingController::class,'solution_store'])->name('enum-solution-store');
+    Route::post('settings/solution/delete', [EnumSettingController::class, 'solution_delete'])->name('enum-solution-delete');
+    Route::get('settings/paymentmode-form',[EnumSettingController::class, 'paymentmode_form'])->name('enum-paymentmode-form');
+    Route::post('settings/paymentmode-store',[EnumSettingController::class,'paymentmode_store'])->name('enum-paymentmode-store');
+    Route::post('settings/paymentmode/delete', [EnumSettingController::class, 'paymentmode_delete'])->name('enum-paymentmode-delete');
+    Route::get('settings/marketing-form',[EnumSettingController::class, 'marketing_form'])->name('enum-marketing-form');
+    Route::post('settings/marketing-store',[EnumSettingController::class,'marketing_store'])->name('enum-marketing-store');
+    Route::post('settings/marketing/delete', [EnumSettingController::class, 'marketing_delete'])->name('enum-marketing-delete');
 
     //Users
     Route::resource('settings/users', UserController::class);

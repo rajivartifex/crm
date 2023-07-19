@@ -110,7 +110,7 @@ select.form-control-sm~.select2-container--default{ font-size:100% !important;}
 .input-group-text{ font-size:.85rem; background-color: #7367f0 !important; border-color:#7367f0 !important; color:#fff;}
 .form-control{ font-size:.85rem;}
 
-.badge-primary{ font-size:0.8125rem; font-weight:500; background-color:#7367f0;}
+.badge-primary{ font-size:0.8125rem; font-weight:500; background-color:#7367f0; margin-top: 3px;}
 
 /*===========================Login Page===========================*/
 
@@ -135,5 +135,3 @@ body.login-page:before{ background-color:rgba(0,0,0,.32); position:absolute; lef
 
 .login-box h4.logo-text,
 .register-box h4.logo-text{ color:#34495e;}
-
-
