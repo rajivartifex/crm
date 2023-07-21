@@ -112,6 +112,19 @@ select.form-control-sm~.select2-container--default{ font-size:100% !important;}
 
 .badge-primary{ font-size:0.8125rem; font-weight:500; background-color:#7367f0; margin-top: 3px;}
 
+
+.business-log-form .direct-chat-messages{ height:400px;}
+
+.business-log-form .direct-chat-text::before,
+.business-log-form .direct-chat-text::after{border-bottom-color:#EFF2F6; border-right-color:transparent; left:24px; top:-5px;}
+.business-log-form .direct-chat-text{ margin-left:0; background-color:#EFF2F6; border-color:#EFF2F6; padding:16px;}
+
+.business-log-form .comment-text-wrapper{ margin-bottom:24px;}
+
+.business-log-form .direct-chat-infos{ font-weight:500; font-size:.85rem;}
+.business-log-form .input-group{ margin-top:16px;}
+.business-log-form .input-group button.logSubmit{ border-top-left-radius:0; border-bottom-left-radius:0;}
+
 /*===========================Login Page===========================*/
 
 body.login-page{ background-position: center center; background-repeat: no-repeat; background-size: cover; position:relative;}

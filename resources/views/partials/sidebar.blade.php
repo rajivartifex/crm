@@ -59,7 +59,7 @@
                         <li class="nav-item">
                             <a href="{{route('enum-index')}}" class="nav-link {{ request()->is('settings/enum*') ? 'active' : '' }}">
                                 <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
-                                <p class="sub-menu-font">Enum Setting</p>
+                                <p class="sub-menu-font">General Settings</p>
                             </a>
                         </li>
                     </ul>

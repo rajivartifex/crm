@@ -34,14 +34,14 @@ use App\Http\Controllers\EnumSettingController;
 |
 */
 
-// Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-// Route::post('login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-// Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
-// Route::post('register', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
+Route::post('register', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 
-// Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth']], function() {
     //Dashboard
     Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 
@@ -150,6 +150,6 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
     Route::get('customer/working-hours', [CustomerController::class, 'view_working_hours'])->name('customer-working-hours-index');
     Route::post('customer/working-hours/store', [BusinessWorkingHoursController::class, 'working_hours_store'])->name('customer-business-working-hours-store');
 
-// });
+});
 
 
