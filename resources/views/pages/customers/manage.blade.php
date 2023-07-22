@@ -12,10 +12,12 @@
                 <h1>Manage customers</h1>
             </div>
             <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{route('customer-add-index')}}" class="btn btn-sm btn-secondary">New</a></li>
-                    {{-- <li class="breadcrumb-item active">DataTables</li> --}}
-                </ol>
+                @can('customer-create')
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{route('customer-add-index')}}" class="btn btn-sm btn-secondary">New</a></li>
+                        {{-- <li class="breadcrumb-item active">DataTables</li> --}}
+                    </ol>
+                @endcan
             </div>
         </div>
     </div>
@@ -33,7 +35,9 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Customer Name</th>
-                                <th>Action</th>
+                                @canany(['business-identity-edit','customer-delete'])
+                                    <th>Action</th>
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -41,18 +45,26 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>{{$list->cust_business_name	?? ''}}</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="{{route('customer-add-index',['cust_id' => $list->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
-                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu" role="menu">
-                                            <a class="dropdown-item btn-sm" href="{{route('customer-add-index',['cust_id' => $list->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
-                                            <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                @canany(['business-identity-edit','customer-delete'])
+                                    <td>
+                                        <div class="btn-group">
+                                            @can('business-identity-edit')
+                                                <a href="{{route('customer-add-index',['cust_id' => $list->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
+                                            @endcan
+                                            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <div class="dropdown-menu" role="menu">
+                                                @can('business-identity-edit')
+                                                    <a class="dropdown-item btn-sm" href="{{route('customer-add-index',['cust_id' => $list->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
+                                                @endcan
+                                                @can('customer-delete')
+                                                    <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                                @endcan
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
+                                    </td>
+                                @endcan
                             </tr>
                             @endforeach
                         </tbody>
@@ -60,7 +72,9 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Customer Name</th>
-                                <th>Action</th>
+                                @canany(['business-identity-edit','customer-delete'])
+                                    <th>Action</th>
+                                @endcan
                             </tr>
                         </tfoot>
                     </table>

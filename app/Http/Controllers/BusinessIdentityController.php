@@ -8,6 +8,12 @@ use App\Models\Customer;
 class BusinessIdentityController extends Controller
 {
 
+    function __construct()
+    {
+         $this->middleware('permission:business-identity-list', ['only' => ['view_business_identity']]);
+         $this->middleware('permission:business-identity-edit', ['only' => ['business_identity_store']]);
+    }
+
     public function view_business_identity(Request $request)
     {
         return view('pages.customers.profile_section.bus_identity');

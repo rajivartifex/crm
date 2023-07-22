@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class BusinessWebController extends Controller
 {
-    public function view_web()
+    function __construct()
     {
-        return view('pages.customers.web_section.web');
+         $this->middleware('permission:social-media-edit', ['only' => ['view_web_store']]);
     }
 
     public function view_web_store(Request $request)

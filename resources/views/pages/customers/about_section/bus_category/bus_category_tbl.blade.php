@@ -5,9 +5,11 @@
                 <h3 class="card-title text-bold">Business Category</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
-                        <div class="input-group-append">
-                            <a href="{{route('customer-business-category-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
-                        </div>
+                        @can('business-category-create')
+                            <div class="input-group-append">
+                                <a href="{{route('customer-business-category-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
+                            </div>
+                        @endcan
                     </div>
                 </div>
             </div>
@@ -18,7 +20,9 @@
                             <th>Id</th>
                             <th>Category Name</th>
                             <th>Service Tags</th>
-                            <th>Action</th>
+                            @canany(['business-category-edit','business-category-delete'])
+                                <th>Action</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -34,18 +38,26 @@
                                     <span class="badge badge-primary">{{$tag}}</span>
                                 @endforeach
                             </td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{route('customer-business-category-index',['cat_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
-                                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="{{route('customer-business-category-index',['cat_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
-                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-business-category-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                            @canany(['business-category-edit','business-category-delete'])
+                                <td>
+                                    <div class="btn-group">
+                                        @can('business-category-edit')
+                                            <a href="{{route('customer-business-category-index',['cat_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
+                                        @endcan
+                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            @can('business-category-edit')
+                                                <a class="dropdown-item" href="{{route('customer-business-category-index',['cat_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
+                                            @endcan
+                                            @can('business-category-delete')
+                                                <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-business-category-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                            @endcan
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
+                            @endcan
                         </tr>
                         @endforeach
                     </tbody>

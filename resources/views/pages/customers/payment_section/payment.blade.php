@@ -6,9 +6,11 @@
                 @if(!count($custPayments) > 0)
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
-                            <div class="input-group-append">
-                                <a href="{{route('customer-payment-method-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
-                            </div>
+                            @can('payment-accepted-create')
+                                <div class="input-group-append">
+                                    <a href="{{route('customer-payment-method-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
+                                </div>
+                            @endcan
                         </div>
                     </div>
                 @endif
@@ -19,7 +21,9 @@
                         <tr>
                             <th>Id</th>
                             <th>Payments</th>
-                            <th>Action</th>
+                            @canany(['payment-accepted-edit','payment-accepted-delete'])
+                                <th>Action</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -32,18 +36,26 @@
                                 ?>
                                  {{ implode(", ", $payments ?? '') }}
                             </td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{route('customer-payment-method-index',['pay_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
-                                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item btn-sm" href="{{route('customer-payment-method-index',['pay_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
-                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-payment-method-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                            @canany(['payment-accepted-edit','payment-accepted-delete'])
+                                <td>
+                                    <div class="btn-group">
+                                        @can('payment-accepted-edit')
+                                            <a href="{{route('customer-payment-method-index',['pay_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
+                                        @endcan
+                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            @can('payment-accepted-edit')
+                                                <a class="dropdown-item btn-sm" href="{{route('customer-payment-method-index',['pay_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
+                                            @endcan
+                                            @can('payment-accepted-delete')
+                                                <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-payment-method-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                            @endcan
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
+                            @endcan
                         </tr>
                         @endforeach
                     </tbody>

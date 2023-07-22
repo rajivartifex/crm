@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class BusinessSupportController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:support-list|support-create|support-edit|support-delete', ['only' => ['view_support','view_support_store']]);
+         $this->middleware('permission:support-create', ['only' => ['view_support','view_support_store']]);
+         $this->middleware('permission:support-edit', ['only' => ['view_support','view_support_store']]);
+         $this->middleware('permission:support-delete', ['only' => ['view_support_delete']]);
+    }
+
     public function view_support(Request $request)
     {
         $customer = Customer::find($request->cust_id);

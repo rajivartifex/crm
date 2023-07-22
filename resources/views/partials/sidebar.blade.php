@@ -44,6 +44,7 @@
                                 <p class="sub-menu-font">Profile Update</p>
                             </a>
                         </li>
+                        @if(\Auth::user()->hasRole('admin'))
                         <li class="nav-item">
                             <a href="{{route('users.index')}}" class="nav-link {{ request()->is('settings/users*') ? 'active' : ''}}">
                                 <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
@@ -62,6 +63,7 @@
                                 <p class="sub-menu-font">General Settings</p>
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </li>
             </ul>

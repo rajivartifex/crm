@@ -32,10 +32,12 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer">
-            <button type="submit" class="btn btn-sm btn-secondary business-identity-submit">Submit</button>
-            {{-- <button type="#" class="btn btn-sm btn-default">Back</button> --}}
-        </div>
+        @can('business-identity-edit')
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-secondary business-identity-submit">Submit</button>
+                {{-- <button type="#" class="btn btn-sm btn-default">Back</button> --}}
+            </div>
+        @endcan
     </form>
 </div>
 @section('script')

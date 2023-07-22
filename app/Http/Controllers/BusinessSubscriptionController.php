@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class BusinessSubscriptionController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:hosting-subscription-list|hosting-subscription-create|hosting-subscription-edit|hosting-subscription-delete', ['only' => ['view_subscription','view_subscription_store']]);
+         $this->middleware('permission:hosting-subscription-create', ['only' => ['view_subscription','view_subscription_store']]);
+         $this->middleware('permission:hosting-subscription-edit', ['only' => ['view_subscription','view_subscription_store']]);
+         $this->middleware('permission:hosting-subscription-delete', ['only' => ['view_subscription_delete']]);
+    }
+
     public function view_subscription(Request $request)
     {
         $customer = Customer::find($request->cust_id);

@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class BusinessMarketingController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:marketing-list|marketing-create|marketing-edit|marketing-delete', ['only' => ['view_marketing','view_marketing_store']]);
+         $this->middleware('permission:marketing-create', ['only' => ['view_marketing','view_marketing_store']]);
+         $this->middleware('permission:marketing-edit', ['only' => ['view_marketing','view_marketing_store']]);
+         $this->middleware('permission:marketing-delete', ['only' => ['view_marketing_delete']]);
+    }
+
     public function view_marketing(Request $request)
     {
         $customer = Customer::find($request->cust_id);

@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class BusinessCommentController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:comments-list|comments-create|comments-edit|comments-delete', ['only' => ['view_comment','view_comment_store']]);
+         $this->middleware('permission:comments-create', ['only' => ['view_comment','view_comment_store']]);
+         $this->middleware('permission:comments-edit', ['only' => ['view_comment','view_comment_store']]);
+         $this->middleware('permission:comments-delete', ['only' => ['view_comment_delete']]);
+    }
     public function view_comment(Request $request)
     {
         $customer = Customer::find($request->cust_id);

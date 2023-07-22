@@ -5,9 +5,11 @@
                 <h3 class="card-title text-bold">Support</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
-                        <div class="input-group-append">
-                            <a href="{{route('customer-support-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
-                        </div>
+                        @can('support-create')
+                            <div class="input-group-append">
+                                <a href="{{route('customer-support-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
+                            </div>
+                        @endcan
                     </div>
                 </div>
             </div>
@@ -23,7 +25,9 @@
                             <th>Plan</th>
                             <th>Pricing</th>
                             <th>Payment Modes</th>
-                            <th>Action</th>
+                            @canany(['support-edit','support-delete'])
+                                <th>Action</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -37,18 +41,26 @@
                             <td>{{$list->cust_sup_plan ?? ''}}</td>
                             <td>{{$list->cust_sup_pricing ?? ''}}</td>
                             <td>{{$list->paymentMode->type ?? ''}}</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{route('customer-support-index',['sp_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
-                                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item btn-sm" href="{{route('customer-support-index',['sp_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
-                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-support-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                            @canany(['support-edit','support-delete'])
+                                <td>
+                                    <div class="btn-group">
+                                        @can('support-edit')
+                                            <a href="{{route('customer-support-index',['sp_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
+                                        @endcan
+                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            @can('support-edit')
+                                                <a class="dropdown-item btn-sm" href="{{route('customer-support-index',['sp_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
+                                            @endcan
+                                            @can('support-delete')
+                                                <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-support-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                            @endcan
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
+                            @endcan
                         </tr>
                         @endforeach
                     </tbody>

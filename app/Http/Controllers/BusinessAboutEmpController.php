@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class BusinessAboutEmpController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:business-about-list|business-about-create|business-about-edit|business-about-delete', ['only' => ['view_no_of_emp','view_no_of_emp_store']]);
+         $this->middleware('permission:business-about-create', ['only' => ['view_no_of_emp','view_no_of_emp_store']]);
+         $this->middleware('permission:business-about-edit', ['only' => ['view_no_of_emp','view_no_of_emp_store']]);
+         $this->middleware('permission:business-about-delete', ['only' => ['view_no_of_emp_delete']]);
+    }
     public function view_no_of_emp(Request $request)
     {
         $customer = Customer::find($request->cust_id);

@@ -5,9 +5,11 @@
                 <h3 class="card-title text-bold">Domain</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
-                        <div class="input-group-append">
-                            <a href="{{route('customer-domain-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
-                        </div>
+                        @can('domain-create')
+                            <div class="input-group-append">
+                                <a href="{{route('customer-domain-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
+                            </div>
+                        @endcan
                     </div>
                 </div>
             </div>
@@ -19,7 +21,9 @@
                             <th>Domain Name</th>
                             <th>Start Date</th>
                             <th>Renewal Date</th>
-                            <th>Action</th>
+                            @canany(['domain-edit','domain-delete'])
+                                <th>Action</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -29,18 +33,26 @@
                             <td>{{$list->cust_domain_name ?? ''}}</td>
                             <td>{{$list->cust_domain_start_date ?? ''}}</td>
                             <td>{{$list->cust_domain_renewal_date ?? ''}}</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{route('customer-domain-index',['dom_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
-                                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item btn-sm" href="{{route('customer-domain-index',['dom_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
-                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-domain-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                            @canany(['domain-edit','domain-delete'])
+                                <td>
+                                    <div class="btn-group">
+                                        @can('domain-edit')
+                                            <a href="{{route('customer-domain-index',['dom_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
+                                        @endcan
+                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            @can('domain-edit')
+                                                <a class="dropdown-item btn-sm" href="{{route('customer-domain-index',['dom_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
+                                            @endcan
+                                            @can('domain-delete')
+                                                <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-domain-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                            @endcan
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
+                            @endcan
                         </tr>
                         @endforeach
                     </tbody>

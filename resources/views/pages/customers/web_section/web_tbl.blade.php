@@ -24,12 +24,14 @@
                                         <input type="text" class="form-control form-control-sm" name="ff[cust_media_link]" value="{{$list->cust_media_link ?? ''}}">
                                     </div>
                                 </div>
-                                <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <input type="hidden" class="web_delete" name="web_delete">
-                                        <button type="button" class="btn btn-sm btn-danger" data-id="{{$list->id ?? ''}}" onclick="$(this).specialDelete();"><i class="fas fa-minus"></i></button>
+                                @can('social-media-edit')
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <input type="hidden" class="web_delete" name="web_delete">
+                                            <button type="button" class="btn btn-sm btn-danger" data-id="{{$list->id ?? ''}}" onclick="$(this).specialDelete();"><i class="fas fa-minus"></i></button>
+                                        </div>
                                     </div>
-                                </div>
+                                @endcan
                             </div>
                         </div>
                     @endforeach
@@ -63,14 +65,18 @@
                 <div class="col-sm-12">
                     <div class="media_link_dynamic"></div>
                 </div>
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <a class="btn-sm btn btn-secondary add_web_link_btn float-right"><i class="fas fa-plus"></i> Social Media</a>
+                @can('social-media-edit')
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <a class="btn-sm btn btn-secondary add_web_link_btn float-right"><i class="fas fa-plus"></i> Social Media</a>
+                        </div>
                     </div>
-                </div>
+                @endcan
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn-sm btn btn-secondary">Submit</button>
+                @can('social-media-edit')
+                    <button type="submit" class="btn-sm btn btn-secondary">Submit</button>
+                @endcan
                 <a href="{{route('customer-add-index',['cust_id' => $customer->id ?? ''])}}" class="btn-sm btn btn-default">Back</a>
             </div>
         </form>

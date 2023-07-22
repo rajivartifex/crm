@@ -22,6 +22,14 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:working-hours-list', ['only' => ['view_working_hours']]);
+         $this->middleware('permission:social-media-list', ['only' => ['view_social_media']]);
+         $this->middleware('permission:log-list', ['only' => ['view_log']]);
+         $this->middleware('permission:customer-delete', ['only' => ['customer_delete']]);
+    }
+
     public function manageIndex()
     {
         $customer = Customer::all();
@@ -56,6 +64,16 @@ class CustomerController extends Controller
     public function view_working_hours()
     {
         return view('pages.customers.about_section.working_hours.working_hours');
+    }
+
+    public function view_social_media()
+    {
+        return view('pages.customers.web_section.web_tbl');
+    }
+
+    public function view_log()
+    {
+        return view('pages.customers.logs.log');
     }
 
     public function customer_delete(Request $request)

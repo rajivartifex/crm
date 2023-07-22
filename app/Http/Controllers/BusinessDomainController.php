@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class BusinessDomainController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:domain-list|domain-create|domain-edit|domain-delete', ['only' => ['view_domain','view_domain_store']]);
+         $this->middleware('permission:domain-create', ['only' => ['view_domain','view_domain_store']]);
+         $this->middleware('permission:domain-edit', ['only' => ['view_domain','view_domain_store']]);
+         $this->middleware('permission:domain-delete', ['only' => ['view_domain_delete']]);
+    }
+
     public function view_domain(Request $request)
     {
         $customer = Customer::find($request->cust_id);

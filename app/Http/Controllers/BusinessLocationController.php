@@ -10,10 +10,10 @@ class BusinessLocationController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:location-list|location-create|location-edit|location-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:location-create', ['only' => ['create','store']]);
-         $this->middleware('permission:location-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:location-delete', ['only' => ['destroy']]);
+         $this->middleware('permission:business-location-list|business-location-create|business-location-edit|business-location-delete', ['only' => ['view_business_location','view_business_location_store']]);
+         $this->middleware('permission:business-location-create', ['only' => ['view_business_location','view_business_location_store']]);
+         $this->middleware('permission:business-location-edit', ['only' => ['view_business_location','view_business_location_store']]);
+         $this->middleware('permission:business-location-delete', ['only' => ['view_business_location_delete']]);
     }
 
     public function view_business_location(Request $request)

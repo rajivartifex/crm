@@ -6,9 +6,11 @@
                 @if(!count($custEmp) > 0)
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
-                        <div class="input-group-append">
-                            <a href="{{route('customer-no-emp-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
-                        </div>
+                        @can('business-about-create')
+                            <div class="input-group-append">
+                                <a href="{{route('customer-no-emp-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
+                            </div>
+                        @endcan
                     </div>
                 </div>
                 @endif
@@ -19,7 +21,9 @@
                         <tr>
                             <th>Id</th>
                             <th>No Of Employees</th>
-                            <th>Action</th>
+                            @canany(['business-about-edit','business-about-delete'])
+                                <th>Action</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -27,18 +31,26 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$list->cust_of_emps ?? ''}} </td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{route('customer-no-emp-index',['emp_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
-                                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item btn-sm" href="{{route('customer-no-emp-index',['emp_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
-                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-no-emp-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                            @canany(['business-about-edit','business-about-delete'])
+                                <td>
+                                    <div class="btn-group">
+                                        @can('business-about-edit')
+                                            <a href="{{route('customer-no-emp-index',['emp_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
+                                        @endcan
+                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            @can('business-about-edit')
+                                                <a class="dropdown-item btn-sm" href="{{route('customer-no-emp-index',['emp_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
+                                            @endcan
+                                            @can('business-about-delete')
+                                                <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-no-emp-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                            @endcan
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
+                            @endcan
                         </tr>
                         @endforeach
                     </tbody>

@@ -38,9 +38,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <?php if($k == 'monday'): ?>
-                                <button type="button" class="btn btn-outline-secondary xui-act-apply_all">Apply All</button>
-                            <?php endif ?>
+                            @can('working-hours-edit')
+                                <?php if($k == 'monday'): ?>
+                                    <button type="button" class="btn btn-outline-secondary xui-act-apply_all">Apply All</button>
+                                <?php endif ?>
+                            @endcan
                         <?php endforeach; ?>
                     @else
                         <?php foreach(['monday'=>'monday','tuesday'=>'tuesday','wednesday'=>'wednesday','thursday'=>'thursday','friday'=>'friday','saturday'=>'saturday','sunday'=>'sunday'] as $k => $v): ?>
@@ -72,14 +74,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <?php if($k == 'monday'): ?>
-                                <button type="button" class="btn btn-outline-secondary xui-act-apply_all">Apply All</button>
-                            <?php endif ?>
+                            @can('working-hours-edit')
+                                <?php if($k == 'monday'): ?>
+                                    <button type="button" class="btn btn-outline-secondary xui-act-apply_all">Apply All</button>
+                                <?php endif ?>
+                            @endcan
                         <?php endforeach; ?>
                     @endif
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn-sm btn btn-secondary">Submit</button>
+                    @can('working-hours-edit')
+                        <button type="submit" class="btn-sm btn btn-secondary">Submit</button>
+                    @endcan
                     <a href="{{route('customer-add-index',['cust_id' => $customer->id ?? ''])}}" class="btn-sm btn btn-default">Back</a>
                 </div>
             </form>

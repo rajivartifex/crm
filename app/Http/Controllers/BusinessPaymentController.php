@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class BusinessPaymentController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:payment-accepted-list|payment-accepted-create|payment-accepted-edit|payment-accepted-delete', ['only' => ['view_payment_method','view_payment_method_store']]);
+         $this->middleware('permission:payment-accepted-create', ['only' => ['view_payment_method','view_payment_method_store']]);
+         $this->middleware('permission:payment-accepted-edit', ['only' => ['view_payment_method','view_payment_method_store']]);
+         $this->middleware('permission:payment-accepted-delete', ['only' => ['view_payment_method_delete']]);
+    }
+
     public function view_payment_method(Request $request)
     {
         $customer = Customer::find($request->cust_id);
@@ -39,5 +47,11 @@ class BusinessPaymentController extends Controller
                 'data' => $payment
             ]);
         }
+    }
+
+    public function view_payment_method_delete(Request $request)
+    {
+        CustPayment::find($request->id)->delete();
+        return response()->json(['success' => 'Business payment deleted successfully!','title' => 'Business Payment']);
     }
 }

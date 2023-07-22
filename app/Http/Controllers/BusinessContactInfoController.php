@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class BusinessContactInfoController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:business-contact-info-list|business-contact-info-create|business-contact-info-edit|business-contact-info-delete', ['only' => ['view_business_contact_info','business_contact_info_store']]);
+         $this->middleware('permission:business-contact-info-create', ['only' => ['view_business_contact_info','business_contact_info_store']]);
+         $this->middleware('permission:business-contact-info-edit', ['only' => ['view_business_contact_info','business_contact_info_store']]);
+         $this->middleware('permission:business-contact-info-delete', ['only' => ['business_contact_info_delete']]);
+    }
+
     public function view_business_contact_info(Request $request)
     {
         $customer = Customer::find($request->cust_id);

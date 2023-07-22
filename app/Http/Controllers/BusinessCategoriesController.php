@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class BusinessCategoriesController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:business-category-list|business-category-create|business-category-edit|business-category-delete', ['only' => ['view_of_business_category','view_of_business_category_store']]);
+         $this->middleware('permission:business-category-create', ['only' => ['view_of_business_category','view_of_business_category_store']]);
+         $this->middleware('permission:business-category-edit', ['only' => ['view_of_business_category','view_of_business_category_store']]);
+         $this->middleware('permission:business-category-delete', ['only' => ['view_of_business_category_delete']]);
+    }
     public function view_of_business_category(Request $request)
     {
         $customer = Customer::find($request->cust_id);

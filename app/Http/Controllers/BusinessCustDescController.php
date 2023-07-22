@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class BusinessCustDescController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:description-list|description-create|description-edit|description-delete', ['only' => ['view_description','view_description_store']]);
+         $this->middleware('permission:description-create', ['only' => ['view_description','view_description_store']]);
+         $this->middleware('permission:description-edit', ['only' => ['view_description','view_description_store']]);
+         $this->middleware('permission:description-delete', ['only' => ['view_description_delete']]);
+    }
     public function view_description(Request $request)
     {
         $customer = Customer::find($request->cust_id);

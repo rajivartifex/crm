@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class BusinessWorkingHoursController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:working-hours-list|working-hours-edit', ['only' => ['view_of_business_category','working_hours_store']]);
+         $this->middleware('permission:working-hours-edit', ['only' => ['view_of_business_category','working_hours_store']]);
+    }
     public function working_hours_store(Request $request)
     {
         if($request->ajax()){

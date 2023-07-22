@@ -5,9 +5,11 @@
                 <h3 class="card-title text-bold">Business Location</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
-                        <div class="input-group-append">
-                            <a href="{{route('customer-business-location-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
-                        </div>
+                        @can('business-location-create')
+                            <div class="input-group-append">
+                                <a href="{{route('customer-business-location-index',['cust_id' => $customer->id ?? ''])}}" class="btn btn-sm btn-secondary" type="button">New</a>
+                            </div>
+                        @endcan
                     </div>
                 </div>
             </div>
@@ -22,7 +24,9 @@
                             <th>State</th>
                             <th>Postcode</th>
                             <th>Country</th>
-                            <th>Action</th>
+                            @canany(['business-location-edit','business-location-delete'])
+                                <th>Action</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -35,18 +39,26 @@
                             <td>{{$list->cust_location_state ?? ''}}</td>
                             <td>{{$list->cust_location_postcode ?? ''}}</td>
                             <td>{{$list->cust_location_country ?? ''}}</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{route('customer-business-location-index',['loc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
-                                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item btn-sm" href="{{route('customer-business-location-index',['loc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
-                                        <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-business-location-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                            @canany(['business-location-edit','business-location-delete'])
+                                <td>
+                                    <div class="btn-group">
+                                        @can('business-location-edit')
+                                            <a href="{{route('customer-business-location-index',['loc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}" class="btn btn-secondary btn-sm">Edit</a>
+                                        @endcan
+                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            @can('business-location-edit')
+                                                <a class="dropdown-item btn-sm" href="{{route('customer-business-location-index',['loc_id' => $list->id ?? '','cust_id' => $customer->id ?? ''])}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Edit</a>
+                                            @endcan
+                                            @can('business-location-delete')
+                                                <button class="dropdown-item btn-delete btn-sm" data-redirect-url="{{route('customer-business-location-delete')}}" data-id="{{$list->id}}"><i class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true"> </i> Delete</button>
+                                            @endcan
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
+                            @endcan
                         </tr>
                         @endforeach
                     </tbody>
