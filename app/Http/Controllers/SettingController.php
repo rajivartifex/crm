@@ -19,7 +19,7 @@ class SettingController extends Controller
             if (request()->hasFile('login_image')) {
                 $file = $request->file('login_image');
                 $fileName = time() . '_' . $file->getClientOriginalName();
-                $filePath = $file->storeAs('login_image', $fileName, 'public');
+                $filePath = $file->move(public_path('login_image'), $fileName);
                 $loginImage = LoginImage::find($request->id);
                 $loginImage->login_image = $fileName;
                 $loginImage->save();
@@ -28,7 +28,7 @@ class SettingController extends Controller
             if (request()->hasFile('login_image')) {
                 $file = $request->file('login_image');
                 $fileName = time() . '_' . $file->getClientOriginalName();
-                $filePath = $file->public_path('login_image', $fileName, 'public');
+                $filePath = $file->move(public_path('login_image'), $fileName);
                 $loginImage = new LoginImage();
                 $loginImage->login_image = $fileName;
                 $loginImage->save();
