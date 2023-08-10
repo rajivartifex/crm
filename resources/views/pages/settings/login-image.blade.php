@@ -49,8 +49,7 @@
                         </div>
                         @if (isset($login_image))
                             <div id="existingImagePreview" style="display: none;">
-                                <img id="existingpreviewImage"
-                                    src="{{ asset('storage/login_image/' . $login_image->login_image) }}"
+                                <img id="existingpreviewImage" src="{{ asset('login_image/' . $login_image->login_image) }}"
                                     alt="Existing Image">
                             </div>
                         @endif

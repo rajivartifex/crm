@@ -21,7 +21,7 @@
 <?php $login_image = \App\Models\LoginImage::first(); ?>
 
 <body class="hold-transition login-page"
-    @if ($login_image) style="background-image:url({{ asset('storage/login_image/' . $login_image->login_image) }});" @else style="background-image:url({{ asset('assets/img/login-bg.jpg') }});" @endif>
+    @if ($login_image) style="background-image:url({{ asset('login_image/' . $login_image->login_image) }});" @else style="background-image:url({{ asset('assets/img/login-bg.jpg') }});" @endif>
 
     <body class="hold-transition login-page" style="background-image:url({{ asset('assets/img/login-bg.jpg') }});">
         <div class="login-box">
