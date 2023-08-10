@@ -16,19 +16,23 @@ class SettingController extends Controller
     public function login_image_upload(Request $request)
     {
         if ($request->id) {
-            $file = $request->file('login_image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('login_image', $fileName, 'public');
-            $loginImage = LoginImage::find($request->id);
-            $loginImage->login_image = $fileName;
-            $loginImage->save();
+            if (request()->hasFile('login_image')) {
+                $file = $request->file('login_image');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $filePath = $file->storeAs('login_image', $fileName, 'public');
+                $loginImage = LoginImage::find($request->id);
+                $loginImage->login_image = $fileName;
+                $loginImage->save();
+            }
         } else {
-            $file = $request->file('login_image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->public_path('login_image', $fileName, 'public');
-            $loginImage = new LoginImage();
-            $loginImage->login_image = $fileName;
-            $loginImage->save();
+            if (request()->hasFile('login_image')) {
+                $file = $request->file('login_image');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $filePath = $file->public_path('login_image', $fileName, 'public');
+                $loginImage = new LoginImage();
+                $loginImage->login_image = $fileName;
+                $loginImage->save();
+            }
         }
 
 
