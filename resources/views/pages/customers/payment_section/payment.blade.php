@@ -19,7 +19,7 @@
                 <table id="business-payment-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Payments</th>
                             @canany(['payment-accepted-edit','payment-accepted-delete'])
                                 <th>Action</th>

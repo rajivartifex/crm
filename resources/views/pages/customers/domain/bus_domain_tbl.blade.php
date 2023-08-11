@@ -17,7 +17,7 @@
                 <table id="business-domain-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Domain Name</th>
                             <th>Start Date</th>
                             <th>Renewal Date</th>

@@ -17,7 +17,7 @@
                 <table id="business-description-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Short Description</th>
                             <th>Long Description</th>
                             <th>Alternate Description</th>

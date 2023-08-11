@@ -17,7 +17,7 @@
                 <table id="business-category-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Category Name</th>
                             <th>Service Tags</th>
                             @canany(['business-category-edit','business-category-delete'])

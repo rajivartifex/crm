@@ -17,7 +17,7 @@
                 <table id="business-subscription-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Website Name</th>
                             <th>Domain Name</th>
                             <th>Solution Type</th>

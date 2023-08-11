@@ -17,7 +17,7 @@
                 <table id="business-marketing-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Domain Name</th>
                             <th>Marketing Type</th>
                             <th>Start Date</th>

@@ -70,6 +70,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('settings/marketing-form', [EnumSettingController::class, 'marketing_form'])->name('enum-marketing-form');
     Route::post('settings/marketing-store', [EnumSettingController::class, 'marketing_store'])->name('enum-marketing-store');
     Route::post('settings/marketing/delete', [EnumSettingController::class, 'marketing_delete'])->name('enum-marketing-delete');
+    Route::get('settings/category-form', [EnumSettingController::class, 'category_form'])->name('enum-category-form');
+    Route::post('settings/category-store', [EnumSettingController::class, 'category_store'])->name('enum-category-store');
+    Route::post('settings/category/delete', [EnumSettingController::class, 'category_delete'])->name('enum-category-delete');
 
     //Users
     Route::resource('settings/users', UserController::class);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Marketing;
 use App\Models\Payment;
 use App\Models\PaymentMode;
@@ -16,24 +17,24 @@ class EnumSettingController extends Controller
         $solutions = Solution::all();
         $paymentModes = PaymentMode::all();
         $marketings = Marketing::all();
-        return view('pages.settings.enum-settings',compact('payments','solutions','paymentModes','marketings'));
+        $categories = Categories::all();
+        return view('pages.settings.enum-settings', compact('payments', 'solutions', 'paymentModes', 'marketings', 'categories'));
     }
 
     public function payment_form(Request $request)
     {
         $payment = Payment::find($request->pay_id);
-        return view('pages.settings.payment_form',compact('payment'));
+        return view('pages.settings.payment_form', compact('payment'));
     }
 
     public function payment_store(Request $request)
     {
-        if($request->ajax()){
-            if($request->pay_id){
+        if ($request->ajax()) {
+            if ($request->pay_id) {
                 $payment = Payment::find($request->pay_id);
                 $payment->payment = $request->payment ?? '';
                 $payment->save();
-
-            }else{
+            } else {
                 $payment = new Payment();
                 $payment->payment = $request->payment ?? '';
                 $payment->save();
@@ -52,24 +53,23 @@ class EnumSettingController extends Controller
     {
         Payment::find($request->id)->delete();
         // CustomerContactInfo::onlyTrashed()->restore();
-        return response()->json(['success' => 'Payment deleted successfully!','title' => 'Payment']);
+        return response()->json(['success' => 'Payment deleted successfully!', 'title' => 'Payment']);
     }
 
     public function solution_form(Request $request)
     {
         $solution = Solution::find($request->sol_id);
-        return view('pages.settings.solution_form',compact('solution'));
+        return view('pages.settings.solution_form', compact('solution'));
     }
 
     public function solution_store(Request $request)
     {
-        if($request->ajax()){
-            if($request->sol_id){
+        if ($request->ajax()) {
+            if ($request->sol_id) {
                 $solution = Solution::find($request->sol_id);
                 $solution->type = $request->solution_type ?? '';
                 $solution->save();
-
-            }else{
+            } else {
                 $solution = new Solution();
                 $solution->type = $request->solution_type ?? '';
                 $solution->save();
@@ -87,24 +87,23 @@ class EnumSettingController extends Controller
     public function solution_delete(Request $request)
     {
         Solution::find($request->id)->delete();
-        return response()->json(['success' => 'Solution Type deleted successfully!','title' => 'Solution Type']);
+        return response()->json(['success' => 'Solution Type deleted successfully!', 'title' => 'Solution Type']);
     }
 
     public function paymentmode_form(Request $request)
     {
         $paymentmode = PaymentMode::find($request->pay_mode_id);
-        return view('pages.settings.paymentmode_form',compact('paymentmode'));
+        return view('pages.settings.paymentmode_form', compact('paymentmode'));
     }
 
     public function paymentmode_store(Request $request)
     {
-        if($request->ajax()){
-            if($request->pay_mode_id){
+        if ($request->ajax()) {
+            if ($request->pay_mode_id) {
                 $paymentMode = PaymentMode::find($request->pay_mode_id);
                 $paymentMode->type = $request->type ?? '';
                 $paymentMode->save();
-
-            }else{
+            } else {
                 $paymentMode = new PaymentMode();
                 $paymentMode->type = $request->type ?? '';
                 $paymentMode->save();
@@ -123,24 +122,23 @@ class EnumSettingController extends Controller
     {
         PaymentMode::find($request->id)->delete();
         // CustomerContactInfo::onlyTrashed()->restore();
-        return response()->json(['success' => 'Payment mode deleted successfully!','title' => 'Payment Mode']);
+        return response()->json(['success' => 'Payment mode deleted successfully!', 'title' => 'Payment Mode']);
     }
 
     public function marketing_form(Request $request)
     {
         $marketing = Marketing::find($request->mark_id);
-        return view('pages.settings.marketing_form',compact('marketing'));
+        return view('pages.settings.marketing_form', compact('marketing'));
     }
 
     public function marketing_store(Request $request)
     {
-        if($request->ajax()){
-            if($request->mark_id){
+        if ($request->ajax()) {
+            if ($request->mark_id) {
                 $marketing = Marketing::find($request->mark_id);
                 $marketing->type = $request->type ?? '';
                 $marketing->save();
-
-            }else{
+            } else {
                 $marketing = new Marketing();
                 $marketing->type = $request->type ?? '';
                 $marketing->save();
@@ -159,7 +157,40 @@ class EnumSettingController extends Controller
     {
         Marketing::find($request->id)->delete();
         // CustomerContactInfo::onlyTrashed()->restore();
-        return response()->json(['success' => 'Marketing type deleted successfully!','title' => 'Marketing Type']);
+        return response()->json(['success' => 'Marketing type deleted successfully!', 'title' => 'Marketing Type']);
     }
 
+    public function category_form(Request $request)
+    {
+        $category = Categories::find($request->category_id);
+        return view('pages.settings.category_form', compact('category'));
+    }
+
+    public function category_store(Request $request)
+    {
+        if ($request->ajax()) {
+            if ($request->category_id) {
+                $category = Categories::find($request->category_id);
+                $category->cat_name = $request->cat_name ?? '';
+                $category->save();
+            } else {
+                $category = new Categories();
+                $category->cat_name = $request->cat_name ?? '';
+                $category->save();
+            }
+
+            session()->flash('success', 'Category created successfully!');
+            session()->flash('title', 'Category');
+
+            return response()->json([
+                'data' => $category
+            ]);
+        }
+    }
+
+    public function category_delete(Request $request)
+    {
+        Categories::find($request->id)->delete();
+        return response()->json(['success' => 'Category deleted successfully!', 'title' => 'Category']);
+    }
 }

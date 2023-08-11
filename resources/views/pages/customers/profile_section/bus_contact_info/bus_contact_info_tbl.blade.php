@@ -17,7 +17,7 @@
                 <table id="business-contact-info-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>

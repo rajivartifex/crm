@@ -15,7 +15,7 @@
                 <table id="business-payment-type-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Payment Type</th>
                             <th>Action</th>
                         </tr>

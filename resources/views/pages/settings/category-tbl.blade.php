@@ -6,29 +6,31 @@
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
                         <div class="input-group-append">
-                            <a href="{{ route('enum-solution-form') }}" class="btn btn-sm btn-secondary"
-                                type="button">Add Solution Type</a>
+                            <a href="{{ route('enum-category-form') }}" class="btn btn-sm btn-secondary"
+                                type="button">Add
+                                Category</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <table id="solution-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
+                <table id="category-type-tbl" class="table table-bordered table-striped"
+                    style="font-size: 14px !important;">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Solution Type</th>
+                            <th>Category</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($solutions as $k => $solution)
+                        @foreach ($categories as $k => $catgory)
                             <tr>
                                 <td>{{ $k + 1 }}</td>
-                                <td><span class="badge badge-primary"> {{ $solution->type ?? '' }}</span> </td>
+                                <td><span class="badge badge-primary"> {{ $catgory->cat_name ?? '' }}</span> </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ route('enum-solution-form', ['sol_id' => $solution->id ?? '']) }}"
+                                        <a href="{{ route('enum-category-form', ['category_id' => $catgory->id ?? '']) }}"
                                             class="btn btn-secondary btn-sm">Edit</a>
                                         <button type="button"
                                             class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon"
@@ -37,12 +39,12 @@
                                         </button>
                                         <div class="dropdown-menu" role="menu">
                                             <a class="dropdown-item"
-                                                href="{{ route('enum-solution-form', ['sol_id' => $solution->id ?? '']) }}"><i
+                                                href="{{ route('enum-category-form', ['category_id' => $catgory->id ?? '']) }}"><i
                                                     class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true">
                                                 </i> Edit</a>
                                             <button class="dropdown-item btn-delete"
-                                                data-redirect-url="{{ route('enum-solution-delete') }}"
-                                                data-id="{{ $solution->id }}"><i
+                                                data-redirect-url="{{ route('enum-category-delete') }}"
+                                                data-id="{{ $catgory->id }}"><i
                                                     class="nav-icon i-Close-Window font-weight-bold" aria-hidden="true">
                                                 </i> Delete</button>
                                         </div>

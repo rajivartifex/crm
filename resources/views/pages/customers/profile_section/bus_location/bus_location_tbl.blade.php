@@ -17,7 +17,7 @@
                 <table id="business-location-tbl" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Location</th>
                             <th>Address</th>
                             <th>Suburb</th>

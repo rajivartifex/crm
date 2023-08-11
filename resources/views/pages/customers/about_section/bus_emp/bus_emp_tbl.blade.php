@@ -19,7 +19,7 @@
                 <table id="business-about-emp-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>No Of Employees</th>
                             @canany(['business-about-edit','business-about-delete'])
                                 <th>Action</th>

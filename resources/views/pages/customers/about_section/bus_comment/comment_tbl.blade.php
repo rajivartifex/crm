@@ -17,7 +17,7 @@
                 <table id="business-comment-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Comment</th>
                             @canany(['comments-edit','comments-delete'])
                                 <th>Action</th>
