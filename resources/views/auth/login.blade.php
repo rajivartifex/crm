@@ -26,7 +26,7 @@
     <body class="hold-transition login-page" style="background-image:url({{ asset('assets/img/login-bg.jpg') }});">
         <div class="login-box">
             {{-- <h4 class="logo-text mb-15">Welcome to <strong>CRM</strong></h4> --}}
-            <h4 class="logo-text mb-15"><img src="{{ asset('assets/img/logo.png') }}"></h4>
+            <h4 class="logo-text mb-15"><img src="{{ asset('assets/img/Logo.png') }}"></h4>
             <br />
             {{-- <p class="mb-4">Admin Login to CRM dashboard</p> --}}
             <form action="{{ route('login.custom') }}" method="post">
