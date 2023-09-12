@@ -46,12 +46,14 @@
                                                 href="#services" role="tab" aria-controls="services"
                                                 aria-selected="true">Services</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="custom-tabs-one-custdetails-tab" data-toggle="pill"
-                                                href="#custdetails" role="tab" aria-controls="custdetails"
-                                                aria-selected="true">Customer
-                                                Details</a>
-                                        </li>
+                                    @endif
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-one-custdetails-tab" data-toggle="pill"
+                                            href="#custdetails" role="tab" aria-controls="custdetails"
+                                            aria-selected="true">Customer
+                                            Details</a>
+                                    </li>
+                                    @if ($customer)
                                         <li class="nav-item">
                                             <a class="nav-link" id="custom-tabs-one-log-tab" data-toggle="pill"
                                                 href="#log" role="tab" aria-controls="log"
@@ -66,7 +68,7 @@
                                         aria-labelledby="custom-tabs-one-services-tab">
                                         @include('pages.customers.services.service')
                                     </div>
-                                    <div class="tab-pane fade" id="custdetails" role="tabpanel"
+                                    <div class="tab-pane fade show active" id="custdetails" role="tabpanel"
                                         aria-labelledby="custom-tabs-one-custdetails-tab">
                                         @include('pages.customers.custdetails.custdetail')
                                     </div>
@@ -87,7 +89,5 @@
     </div>
 @endsection
 @section('bottom-js')
-    <script>
-
-    </script>
+    <script></script>
 @endsection
