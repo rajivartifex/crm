@@ -78,7 +78,6 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
     <!-- jQuery -->
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -126,33 +125,28 @@
     @yield('script')
     <script>
         $(document).ready(function() {
+            // Check if there's a saved active tab in local storage
+            var activeTab = localStorage.getItem('activeTab');
+
+            // If a saved active tab exists, show it, otherwise show the first tab
+            if (activeTab) {
+                $('.nav-tabs a[href="' + activeTab + '"]').tab('show');
+            } else {
+                $('.nav-tabs a:first').tab('show');
+            }
+
+            // Store the active tab in local storage when a tab is clicked
+            $('.nav-tabs a').on('shown.bs.tab', function(e) {
+                var tab = $(e.target).attr('href');
+                localStorage.setItem('activeTab', tab);
+            });
+        });
+        $(document).ready(function() {
             @if (Session::has('error'))
                 toastr.error('{{ Session::get('error') }}', '{{ Session::get('title') }}');
             @elseif (Session::has('success'))
                 toastr.info('{{ Session::get('success') }}', '{{ Session::get('title') }}');
             @endif
-        });
-
-        $(document).ready(function() {
-            // Listen for tab change events in all main tabs
-            $('#custom-tabs-one-tab a[data-toggle="pill"]').on('shown.bs.tab', function(e) {
-                // Remove "active" class from all sub-tab links
-                $('.sub-tab-list a.nav-link').removeClass('active');
-
-                // Get the target of the main tab and add "active" class to the corresponding sub-tab link
-                const targetId = $(e.target).attr('href').substring(1);
-                const subTabLink = $(`.sub-tab-list a.nav-link[href="#${targetId}"]`);
-                subTabLink.addClass('active');
-            });
-
-            // Listen for click events on sub-tab links
-            $('.sub-tab-list a.nav-link[data-toggle="pill"]').on('click', function() {
-                // Remove "active" class from all sub-tab links
-                $('.sub-tab-list a.nav-link').removeClass('active');
-
-                // Add "active" class to the clicked sub-tab link
-                $(this).addClass('active');
-            });
         });
     </script>
     @yield('bottom-js')
