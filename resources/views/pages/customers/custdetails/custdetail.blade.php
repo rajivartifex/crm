@@ -1,0 +1,32 @@
+@can('business-identity-list')
+    @include('pages.customers.profile_section.bus_identity.bus_identity')
+@endcan
+@if ($customer)
+    @can('business-location-list')
+        @include('pages.customers.profile_section.bus_location.bus_location_tbl')
+    @endcan
+    @can('business-contact-info-list')
+        @include('pages.customers.profile_section.bus_contact_info.bus_contact_info_tbl')
+    @endcan
+    @can('business-category-list')
+        @include('pages.customers.about_section.bus_category.bus_category_tbl')
+    @endcan
+    @can('comments-list')
+        @include('pages.customers.about_section.bus_comment.comment_tbl')
+    @endcan
+    @can('business-about-list')
+        @include('pages.customers.about_section.bus_emp.bus_emp_tbl')
+    @endcan
+    @can('description-list')
+        @include('pages.customers.about_section.description.description_tbl')
+    @endcan
+    @can('working-hours-list')
+        @include('pages.customers.working_hours.index')
+    @endcan
+    @can('payment-accepted-list')
+        @include('pages.customers.payment_section.payment')
+    @endcan
+    @can('social-media-list')
+        @include('pages.customers.web_section.web_tbl')
+    @endcan
+@endif
