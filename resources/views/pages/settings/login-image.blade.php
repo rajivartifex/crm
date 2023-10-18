@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Login Image
+    Login Background Image
 @endsection
 @section('style')
     <style>
@@ -20,7 +20,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4>Login Image</h4>
+                    <h4>Login Background Image</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
     </section>
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Login Image</h3>
+            <h3 class="card-title">Login Background Image</h3>
         </div>
         <form action="{{ route('login-image-upload') }}" method="POST" enctype="multipart/form-data">
             @csrf

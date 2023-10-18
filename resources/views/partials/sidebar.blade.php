@@ -23,14 +23,14 @@
                 <li class="nav-item {{ request()->is('customer*') ? 'active menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->is('customer*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user-tie"></i>
-                        <p> Customer <i class="fas fa-caret-right right"></i> </p>
+                        <p> Customers <i class="fas fa-caret-right right"></i> </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('customer-manage-index') }}"
                                 class="nav-link {{ request()->is('customer*') ? 'active' : '' }}">
                                 <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
-                                <p class="sub-menu-font">Manage Customers</p>
+                                <p class="sub-menu-font">Manage Customer</p>
                             </a>
                         </li>
                     </ul>
