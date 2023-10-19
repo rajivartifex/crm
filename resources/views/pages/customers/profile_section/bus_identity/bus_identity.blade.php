@@ -3,31 +3,35 @@
         <h3 class="card-title">Business Identity</h3>
     </div>
     <form class="business-identity-form">
-        <input type="hidden" name="ff[cust_id]" value="{{$customer->id ?? ''}}" />
+        <input type="hidden" name="ff[cust_id]" value="{{ $customer->id ?? '' }}" />
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Business Name *</label>
-                        <input type="text" name="ff[cust_business_name]" class="form-control form-control-sm" value="{{$customer->cust_business_name ?? ''}}">
+                        <input type="text" name="ff[cust_business_name]" class="form-control form-control-sm"
+                            value="{{ $customer->cust_business_name ?? '' }}">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleInputPassword1">Country this business is based in *</label>
-                        <input type="text" name="ff[cust_business_country]" class="form-control form-control-sm" value="{{$customer->cust_business_country ?? ''}}">
+                        <input type="text" name="ff[cust_business_country]" class="form-control form-control-sm"
+                            value="{{ $customer->cust_business_country ?? '' }}">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleInputPassword1">Business Telephone *</label>
-                        <input type="text" name="ff[cust_business_telephone]" class="form-control form-control-sm" value="{{$customer->cust_business_telephone ?? ''}}">
+                        <input type="number" name="ff[cust_business_telephone]" class="form-control form-control-sm"
+                            value="{{ $customer->cust_business_telephone ?? '' }}">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleInputPassword1">Business Website *</label>
-                        <input type="text" name="ff[cust_business_website]" class="form-control form-control-sm" value="{{$customer->cust_business_website ?? ''}}">
+                        <input type="text" name="ff[cust_business_website]" class="form-control form-control-sm"
+                            value="{{ $customer->cust_business_website ?? '' }}">
                     </div>
                 </div>
             </div>
@@ -43,5 +47,5 @@
 @section('script')
 @endsection
 @section('bottom-js')
-@include('pages.customers.profile_section.bus_identity.script')
+    @include('pages.customers.profile_section.bus_identity.script')
 @endsection
