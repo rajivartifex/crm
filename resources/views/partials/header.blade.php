@@ -13,10 +13,24 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('signout')}}" role="button" title="Logout">
-                <i class="fas fa-sign-out-alt"></i>
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                <i class="fas fa-user"></i>
             </a>
+            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right" style="left: inherit; right: 0px;">
+                <span class="dropdown-item dropdown-header"
+                    style="font-weight: bold">{{ ucfirst(\Auth::user()->name) ?? '' }}</span>
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('profile-update') }}" class="dropdown-item"
+                    style="font-size: 14px; font-weight: 400;">
+                    <i class="fas fa-user-circle mr-2"></i> Profile Setting
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('signout') }}" role="button" class="dropdown-item"
+                    style="font-size: 14px; font-weight: 400;">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
+                </a>
+            </div>
         </li>
     </ul>
 </nav>

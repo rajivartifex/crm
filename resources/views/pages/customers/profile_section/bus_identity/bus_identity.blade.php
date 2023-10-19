@@ -23,7 +23,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleInputPassword1">Business Telephone *</label>
-                        <input type="number" name="ff[cust_business_telephone]" class="form-control form-control-sm"
+                        <input type="text" name="ff[cust_business_telephone]" class="form-control form-control-sm"
                             value="{{ $customer->cust_business_telephone ?? '' }}">
                     </div>
                 </div>
