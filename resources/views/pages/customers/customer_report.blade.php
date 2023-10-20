@@ -37,7 +37,9 @@
                                 @foreach ($combined_reports_rec as $key => $list)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $list->cust_business_name ?? '' }}</td>
+                                        <td><a
+                                                href="{{ route('customer-add-index', ['cust_id' => $list->cust_id ?? '']) }}">{{ $list->cust_business_name ?? '' }}</a>
+                                        </td>
                                         <td>{{ $list->service ?? '' }}</td>
                                         <td>{{ $list->domain_name ?? '' }}
                                         </td>
