@@ -24,10 +24,11 @@ class BusinessIdentityController extends Controller
         if($request->ajax()){
             if(empty($request['ff']['cust_id'])){
                 $customer = new Customer();
-                $customer->cust_business_name = $request['ff']['cust_business_name'];
-                $customer->cust_business_country = $request['ff']['cust_business_country'];
-                $customer->cust_business_telephone = $request['ff']['cust_business_telephone'];
-                $customer->cust_business_website = $request['ff']['cust_business_website'];
+                $customer->cust_business_name = $request['ff']['cust_business_name'] ?? '';
+                $customer->cust_business_country = $request['ff']['cust_business_country'] ?? '';
+                $customer->cust_business_telephone = $request['ff']['cust_business_telephone'] ?? '';
+                $customer->cust_business_email = $request['ff']['cust_business_email'] ?? '';
+                $customer->cust_business_website = $request['ff']['cust_business_website'] ?? '';
                 $customer->save();
 
                 session()->flash('success', 'Business identity created successfully!');
@@ -38,10 +39,11 @@ class BusinessIdentityController extends Controller
                 ]);
             }else{
                 $customer = Customer::find($request['ff']['cust_id']);
-                $customer->cust_business_name = $request['ff']['cust_business_name'];
-                $customer->cust_business_country = $request['ff']['cust_business_country'];
-                $customer->cust_business_telephone = $request['ff']['cust_business_telephone'];
-                $customer->cust_business_website = $request['ff']['cust_business_website'];
+                $customer->cust_business_name = $request['ff']['cust_business_name'] ?? '';
+                $customer->cust_business_country = $request['ff']['cust_business_country'] ?? '';
+                $customer->cust_business_telephone = $request['ff']['cust_business_telephone'] ?? '';
+                $customer->cust_business_email = $request['ff']['cust_business_email'] ?? '';
+                $customer->cust_business_website = $request['ff']['cust_business_website'] ?? '';
                 $customer->save();
 
                 session()->flash('success', 'Business identity updated successfully!');

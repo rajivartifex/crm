@@ -36,6 +36,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Customer Name</th>
+                                    <th>Customer Telephone</th>
+                                    <th>Customer Email</th>
                                     @canany(['business-identity-edit', 'customer-delete'])
                                         <th>Action</th>
                                     @endcan
@@ -46,9 +48,11 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $list->cust_business_name ?? '' }}</td>
+                                        <td>{{ $list->cust_business_telephone ?? '' }}</td>
+                                        <td>{{ $list->cust_business_email ?? '' }}</td>
                                         @canany(['business-identity-edit', 'customer-delete'])
                                             <td>
-                                                <div class="btn-group">
+                                                <div class="btn-group float-right">
                                                     @can('business-identity-edit')
                                                         <a href="{{ route('customer-add-index', ['cust_id' => $list->id ?? '']) }}"
                                                             class="btn btn-secondary btn-sm">Edit</a>

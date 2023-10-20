@@ -29,6 +29,13 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
+                        <label for="exampleInputPassword1">Business Email *</label>
+                        <input type="text" name="ff[cust_business_email]" class="form-control form-control-sm"
+                            value="{{ $customer->cust_business_email ?? '' }}">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
                         <label for="exampleInputPassword1">Business Website *</label>
                         <input type="text" name="ff[cust_business_website]" class="form-control form-control-sm"
                             value="{{ $customer->cust_business_website ?? '' }}">

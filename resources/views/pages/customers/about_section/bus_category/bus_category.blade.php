@@ -11,8 +11,9 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h4>C{{ $customer->id ?? '' }} | Business Category | {{ $custCategory ? 'Edit' : 'Add' }}</h4>
+                <div class="col-sm-12">
+                    <h4>{{ $customer->cust_business_name ?? '' }} | Business Category | {{ $custCategory ? 'Edit' : 'Add' }}
+                    </h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">

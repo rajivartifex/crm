@@ -33,6 +33,13 @@
                                 <p class="sub-menu-font">Manage Customer</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('customer-report-index') }}"
+                                class="nav-link {{ request()->is('customer*') ? 'active' : '' }}">
+                                <i class="nav-icon far fa-dot-circle sub-menu-margin-left"></i>
+                                <p class="sub-menu-font">Report</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item {{ request()->is('settings*') ? 'active menu-open' : '' }}">

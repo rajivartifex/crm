@@ -16,7 +16,8 @@ class Customer extends Model
         'cust_business_name',
         'cust_business_country',
         'cust_business_telephone',
-        'cust_business_website'
+        'cust_business_website',
+        'cust_business_email'
     ];
 
 }
