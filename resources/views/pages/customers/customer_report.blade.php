@@ -27,7 +27,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Customer Name</th>
-                                    <th>Service Name</th>
+                                    <th>Service</th>
+                                    <th>Name</th>
                                     <th>Type</th>
                                     <th>Renewal Date</th>
                                 </tr>
@@ -37,7 +38,8 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $list->cust_business_name ?? '' }}</td>
-                                        <td>{{ $list->cust_domain_name ?? ($list->cust_sub_website_name ?? ($list->cust_mark_domain_name ?? ($list->cust_sup_product_name ?? ''))) }}
+                                        <td>{{ $list->service ?? '' }}</td>
+                                        <td>{{ $list->domain_name ?? '' }}
                                         </td>
                                         <td>{{ $list->type ?? '' }}</td>
                                         <td>{{ \Carbon\Carbon::parse($list->cust_domain_renewal_date ?? ($list->cust_sub_renewal_date ?? ($list->cust_mark_renewal_date ?? ($list->cust_sup_renewal_date ?? ''))))->format('d-m-Y') }}
