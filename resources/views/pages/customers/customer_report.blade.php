@@ -11,15 +11,6 @@
                 <div class="col-sm-6">
                     <h1>Customer Report</h1>
                 </div>
-                <div class="col-sm-6">
-                    @can('customer-create')
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('customer-add-index') }}"
-                                    class="btn btn-sm btn-secondary">New</a></li>
-                            {{-- <li class="breadcrumb-item active">DataTables</li> --}}
-                        </ol>
-                    @endcan
-                </div>
             </div>
         </div>
     </section>
