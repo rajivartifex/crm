@@ -9,7 +9,6 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Customer Report</h1>
                 </div>
             </div>
         </div>
@@ -18,11 +17,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    {{-- <div class="card-header">
-                    <h3 class="card-title">Manage customers</h3>
-                </div> --}}
                     <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                        <h4 class="card-title" id="custom-header">Customer Report</h4>
+                        <table id="customer-report-tbl" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -59,7 +56,7 @@
 @section('bottom-js')
     <script>
         $(function() {
-            $("#example1").DataTable({
+            $("#customer-report-tbl").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,

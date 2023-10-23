@@ -8,9 +8,7 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h4>Manage Users</h4>
-                </div>
+
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     </ol>
@@ -21,18 +19,10 @@
     <div class="card card-primary">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title text-bold"></h3>
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm">
-                            <div class="input-group-append">
-                                <a href="{{ route('users.create') }}" class="btn btn-sm btn-secondary" type="button">Create
-                                    User</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="card-body">
+                    <h4 class="card-title" id="custom-header">Manage Users</h4>
+                    <a href="{{ route('users.create') }}" id="custom-button" class="btn btn-sm btn-secondary">New</a>
                     <table id="users-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                         <thead>
                             <tr>

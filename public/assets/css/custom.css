@@ -148,3 +148,43 @@ body.login-page:before{ background-color:rgba(0,0,0,.32); position:absolute; lef
 
 .login-box h4.logo-text,
 .register-box h4.logo-text{ color:#34495e;}
+
+#datatable-container {
+    position: relative;
+    display: inline-block;
+}
+
+#custom-button {
+    position: absolute;
+    width: auto;
+    right: 20px;
+    z-index: 100;
+}
+
+#custom-header {
+    position: absolute;
+    width: auto;
+    left: 20px;
+}
+
+#crm-datatable_filter, 
+#business-domain-tbl_filter, 
+#business-subscription-tbl_filter, 
+#business-marketing-tbl_filter, 
+#business-support-tbl_filter, 
+#business-location-tbl_filter, 
+#business-contact-info-tbl_filter, 
+#business-category-tbl_filter, 
+#business-comment-tbl_filter,
+#business-about-emp-tbl_filter,
+#business-description-tbl_filter,
+#business-payment-tbl_filter,
+#users-tbl_filter,
+#roles-tbl_filter,
+#category-type-tbl_filter,
+#business-payment-type-tbl_filter,
+#solution-tbl_filter,
+#payment-mode-tbl_filter,
+#marketing-tbl_filter {
+    margin-right: 60px;
+}

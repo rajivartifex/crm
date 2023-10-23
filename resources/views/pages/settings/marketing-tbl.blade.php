@@ -1,20 +1,10 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
-                <h2 class="card-title text-bold"></h2>
-                <div class="card-tools">
-                    <div class="input-group input-group-sm">
-                        <div class="input-group-append">
-                            <a href="{{ route('enum-marketing-form') }}" class="btn btn-sm btn-secondary"
-                                type="button">Add Marketing Type</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="card-body">
-                <table id="marketing-tbl" class="table table-bordered table-striped"
-                    style="font-size: 14px !important;">
+                <h4 class="card-title" id="custom-header">Marketing Type</h4>
+                <a href="{{ route('enum-marketing-form') }}" id="custom-button" class="btn btn-sm btn-secondary">New</a>
+                <table id="marketing-tbl" class="table table-bordered table-striped" style="font-size: 14px !important;">
                     <thead>
                         <tr>
                             <th>#</th>

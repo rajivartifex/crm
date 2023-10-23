@@ -3,22 +3,17 @@
     customer-manage
 @endsection
 @section('style')
+    <style>
+        #customer-datatable_filter {
+            margin-right: 60px;
+        }
+    </style>
 @endsection
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Manage customer</h1>
-                </div>
-                <div class="col-sm-6">
-                    @can('customer-create')
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('customer-add-index') }}"
-                                    class="btn btn-sm btn-secondary">New</a></li>
-                            {{-- <li class="breadcrumb-item active">DataTables</li> --}}
-                        </ol>
-                    @endcan
                 </div>
             </div>
         </div>
@@ -27,11 +22,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    {{-- <div class="card-header">
-                    <h3 class="card-title">Manage customers</h3>
-                </div> --}}
                     <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                        <h4 class="card-title" id="custom-header">Manage Customer</h4>
+                        @can('customer-create')
+                            <a href="{{ route('customer-add-index') }}" id="custom-button"
+                                class="btn btn-sm btn-secondary">New</a>
+                        @endcan
+                        <table id="customer-datatable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -47,7 +44,32 @@
                                 @foreach ($customer as $key => $list)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $list->cust_business_name ?? '' }}</td>
+                                        <td>{{ $list->cust_business_name ?? '' }}<br />
+                                            <?php $domain = \App\Models\CustDomain::where('cust_id', $list->id)->count(); ?>
+                                            @if ($domain)
+                                                <span class="right badge badge-info" title="Domain"><a
+                                                        href="{{ route('customer-add-index', ['cust_id' => $list->id ?? '']) . '#domain' }}"
+                                                        style="color: white">Domain ({{ $domain }}) </a></span>
+                                            @endif
+                                            <?php $marketing = \App\Models\CustMarketing::where('cust_id', $list->id)->count(); ?>
+                                            @if ($marketing)
+                                                <span class="right badge badge-warning" title="Marketing"><a
+                                                        href="{{ route('customer-add-index', ['cust_id' => $list->id ?? '']) . '#marketing' }}"
+                                                        style="color: black">Marketing ({{ $marketing }}) </a></span>
+                                            @endif
+                                            <?php $support = \App\Models\CustSupport::where('cust_id', $list->id)->count(); ?>
+                                            @if ($support)
+                                                <span class="right badge badge-danger" title="Support"><a
+                                                        href="{{ route('customer-add-index', ['cust_id' => $list->id ?? '']) . '#support' }}"
+                                                        style="color: white">Support ({{ $support }}) </a></span>
+                                            @endif
+                                            <?php $hosting = \App\Models\CustSubscription::where('cust_id', $list->id)->count(); ?>
+                                            @if ($hosting)
+                                                <span class="right badge badge-success" title="Hosting"><a
+                                                        href="{{ route('customer-add-index', ['cust_id' => $list->id ?? '']) . '#hosting' }}"
+                                                        style="color: white">Hosting ({{ $hosting }}) </a></span>
+                                            @endif
+                                        </td>
                                         <td>{{ $list->cust_business_telephone ?? '' }}</td>
                                         <td>{{ $list->cust_business_email ?? '' }}</td>
                                         @canany(['business-identity-edit', 'customer-delete'])
@@ -93,7 +115,7 @@
 @section('bottom-js')
     <script>
         $(function() {
-            $("#example1").DataTable({
+            $("#customer-datatable").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
