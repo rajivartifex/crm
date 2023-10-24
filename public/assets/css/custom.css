@@ -188,3 +188,7 @@ body.login-page:before{ background-color:rgba(0,0,0,.32); position:absolute; lef
 #marketing-tbl_filter {
     margin-right: 60px;
 }
+
+#customer-report-tbl_filter{
+    margin-right: 80px;
+}

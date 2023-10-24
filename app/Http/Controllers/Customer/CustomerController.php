@@ -20,6 +20,9 @@ use App\Models\CustSupport;
 use App\Models\CustWeb;
 use App\Models\CustWorkingHours;
 use DB;
+use App\Exports\CustomerReport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class CustomerController extends Controller
 {
@@ -116,5 +119,10 @@ class CustomerController extends Controller
             $combined_reports_rec = $domain_rec->concat($subscription_rec)->concat($marketing_rec)->concat($support_rec);
 
         return view('pages.customers.customer_report',compact('combined_reports_rec'));
+    }
+    
+    public function customerExport() 
+    {
+        return Excel::download(new CustomerReport, 'CustomerReport.xlsx');
     }
 }

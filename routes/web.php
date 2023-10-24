@@ -87,6 +87,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('customer', [CustomerController::class, 'addIndex'])->name('customer-add-index');
     Route::post('customer/delete', [CustomerController::class, 'customer_delete'])->name('customer-delete');
     Route::get('customer/report', [CustomerController::class, 'reportIndex'])->name('customer-report-index');
+    Route::get('customer/export', [CustomerController::class, 'customerExport'])->name('customer-report-export');
 
     //Business Identity
     Route::get('customer/business-identity', [BusinessIdentityController::class, 'view_business_identity'])->name('customer-business-identity-index');

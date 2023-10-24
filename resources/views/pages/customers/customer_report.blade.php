@@ -19,6 +19,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title" id="custom-header">Customer Report</h4>
+                        <a href="{{ route('customer-report-export') }}" id="custom-button"
+                            class="btn btn-sm btn-secondary">Export</a>
                         <table id="customer-report-tbl" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
