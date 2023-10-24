@@ -3,6 +3,11 @@
     Customer Report
 @endsection
 @section('style')
+    <style>
+        #customer-report-tbl_filter {
+            margin-right: 80px;
+        }
+    </style>
 @endsection
 @section('content')
     <section class="content-header">
