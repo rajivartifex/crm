@@ -22,7 +22,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BusinessWorkingHoursController;
 use App\Http\Controllers\EnumSettingController;
-use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SettingController; 
 
 /*
 |--------------------------------------------------------------------------
